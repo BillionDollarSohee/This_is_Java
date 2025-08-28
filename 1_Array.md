@@ -198,7 +198,7 @@ public class Member {
 ### 상속을 선언하는 방법
 자바에서는 `child extends Base` C#에서는 `child : base`이다.
 
-### 상속의 특징
+## 상속의 특징
 자바에서는 단일 상속 원칙이 있어서 여러 부모를 두는 다중상속이 불가하다.
 만약 정 필요하다면 (나-아버지-할아버지)처럼 계층적 상속은 가능하다.
 예외적으로 다중상속(정확히는 다중구현이지만)이 가능한 자원으로는 `인터페이스`가 있다.
@@ -210,6 +210,10 @@ public class Member {
 
 단점도 존재한다. 상속을 이용하면 초기 설계 비용이 늘어난다.
 개발자들은 공통적인 부분이 무엇인지 기준과 논리적인 고민을 해야한다.
+부모는 공통적인 부분을 가지는 추상화, 다형화, 일반화 된 자원을 말하고,
+자식은 고유한 요소를 지니는 구체화, 추상화 된 자원을 의미한다.
+
+
 또한 부모가 바뀌면 자식도 바뀌어야 하는 관계는 커플링이라고 부르는데
 당연히 개발자 입장에서 무척 싫어해야 하는 코드이다.
 하지만 상속을 전혀 사용하지 않고 프로젝트를 할 수는 없다.
@@ -217,21 +221,58 @@ public class Member {
 
 > 모든 클래스는 메모리에 올라가야 사용가능하다.
 
+```java
+class Car{ 	//class Car extends Object 생략
+	// Car 부모는 Object
+	// Object 꺼는 내꺼 (상속관계에서)
+}
+class GrandFather{
+	public int gmoney = 5000;
+	public GrandFather(){
+		System.out.println("GrandFather 생성자");
+	}
+}
+class Father extends GrandFather{
+	public int fmoney = 3000;
+	public Father(){
+		System.out.println("Father 생성자");
+	}
+}
+class Child extends Father{
+	public int cmoney = 100;
+	public Child(){
+		System.out.println("Child 생성자");
+	}
+}
+
+public class Ex01_Inherit{
+	public static void main(String[] args){
+		Child child = new Child();
+		System.out.println(child.gmoney);
+		System.out.println(child.fmoney);
+		System.out.println(child.cmoney);
+	}
+}
+```
+
 빈 클래스를 만들어서 점을 찍어보면 메소드들이 나오는데,
 그 메소드 들은 최상위 클래스인 Object클래스를 상속받고 있기 때문에 사용가능하다.
 상속관계에서는 부모것도 내꺼, 내것도 내꺼인 셈이다.
 
 그렇다면 메모리에는 누가 먼저 올라갈까?
 정답은 부모이다. 부모없이 내가 태어날 수 없다고 생각하면 외우기 쉬울 것 같다.
+생성자로 순서 체크해 볼 수 있다.
 
 만약 부모 클래스의 맴버에 private 변수가 선언되어 있다면 자식은 접근할 수 있을까?
-테스트 해보면 접근이 불가한 것을 알 수 있다.
+private로 상속받은 객체의 필드를 제어한다면 다른 상속받은 클래스에서 사용불가하다.
 하지만 아예 불가능한 것은 아니고 public 메소드를 이용하면 가능하긴 한다. (setter처럼)
 
 계층적 관계에서 자식 인스턴스 변수는 힙 메모리에 있는 모든 계층에 접근가능하다고 이해하면 좋다.
 
-
-
+## 관계
+데이터 베이스에서는 1:1, 1:n m:n 의 의존 관계가 존재한다.
+하지만 자바에서는 저것을 표현할 수가 없다.
+그저 연관 관계만 표현이 가능하다.
 
 
 ## 오늘의 과제
