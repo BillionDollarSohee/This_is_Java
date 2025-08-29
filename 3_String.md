@@ -1,3 +1,7 @@
+2025년 8월 29일
+지하철에서 다형성 코드를 보면서 출근하다보니
+어제의 과제에서 수정해야 할  사항
+
 ```java
 import java.util.Scanner;
 
@@ -32,9 +36,9 @@ public class Main {
     }
 }
         
-    //주민번호 14자리인지 확인 t/f 최대한 짧게
-    // 뒷번호 1~4만 허옹 t/f
-    // 1,3, 남자 2,4, 여자
+// 주민번호 14자리인지 확인 t/f 최대한 짧게
+// 뒷번호 1~4만 허옹 t/f
+// 1,3, 남자 2,4, 여자
             
 class Ex07_String_Total_Quzi {
 
@@ -57,3 +61,35 @@ class Ex07_String_Total_Quzi {
     }
 }
 ```
+
+
+
+
+println만들기
+```
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Main {
+    public static void main(String[] args) {
+        Ssystem.out.add("어떤 함수야?");
+		Ssystem.out.add(100);
+    }
+}
+
+class Ssystem {
+    public static final print out;
+        static {
+            out = new print();
+        }
+}
+
+class print {
+    void add(int i) {System.out.println(i);}
+    void add(String s) {System.out.println(s);}
+}
+```
+
+클래스 안에 클래스 두지 말것
+변수명 확인 잘할것
