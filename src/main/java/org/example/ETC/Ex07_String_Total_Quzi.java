@@ -1,4 +1,4 @@
-
+package org.example.ETC;
 
 public class Ex07_String_Total_Quzi {
     //주민번호 14자리인지 확인 t/f 최대한 짧게
