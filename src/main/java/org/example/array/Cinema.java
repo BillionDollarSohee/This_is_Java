@@ -1,4 +1,4 @@
-package org.example.TASK;
+package org.example.array;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package org.example.Collection;
+package org.example.collection;
 
 public class MyStack {
     private Object[] myStack; // Object로 수정

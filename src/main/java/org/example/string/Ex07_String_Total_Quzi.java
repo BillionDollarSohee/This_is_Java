@@ -1,12 +1,10 @@
-package org.example.ETC;
+package org.example.string;
 
 public class Ex07_String_Total_Quzi {
     //주민번호 14자리인지 확인 t/f 최대한 짧게
 
     // 뒷번호 1~4만 허옹 t/f
     // 1,3, 남자 2,4, 여자
-
-
 
     static boolean juminDisplay(String jumin) {
         return jumin.matches("\\d{6}-\\d{7}");

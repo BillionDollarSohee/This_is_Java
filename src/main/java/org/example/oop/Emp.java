@@ -1,4 +1,4 @@
-package org.example.TASK;
+package org.example.oop;
 
 import lombok.Setter;
 
@@ -35,9 +35,6 @@ public class Emp {
     public String toString() {
         return "Emp [empno=" + empno + ", ename=" + ename + "]";
     }
-
-
-
 
     //다음코드는 1일 개발자 , 10년차 개발자 같은 코드...
     //Object toString() > 자식은 Emp 사용가능   > 조작된 주소값

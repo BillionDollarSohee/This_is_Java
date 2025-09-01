@@ -1,9 +1,7 @@
-package org.example.Collection;
+package org.example.collection;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /*
 제너릭
