@@ -1,4 +1,4 @@
-package org.example.inherit.util;
+package org.example.util;
 
 import lombok.Data;
 

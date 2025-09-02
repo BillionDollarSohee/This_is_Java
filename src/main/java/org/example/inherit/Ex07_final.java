@@ -13,7 +13,7 @@ ex) public final class Math extends Object
 
 2. public final void print(){ } >> 상속관계에서 재정의 금지
 */
-import org.example.inherit.util.Apt;
+import org.example.util.Apt;
 
 class Vard {
 	final String KIND="heart";

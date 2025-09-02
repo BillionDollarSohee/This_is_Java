@@ -1,7 +1,7 @@
 package org.example.inherit;
 
 
-import org.example.inherit.util.Emp;
+import org.example.util.Emp;
 
 class Test2{
 	int x = 100;

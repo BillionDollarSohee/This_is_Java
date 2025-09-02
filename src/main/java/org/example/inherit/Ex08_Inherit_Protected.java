@@ -12,7 +12,7 @@ protected 양면성 >> default , public
 protected : 진정한 의미 (함수) : 재정의를 했느면 좋겠어 ... 그래야 니가 사용할 수 있어
 
 */
-import org.example.inherit.util.Pclass;
+import org.example.util.Pclass;
 class Dclass {
 	public int i;
 	private int p;

@@ -1,4 +1,4 @@
-package org.example.inherit.util;
+package org.example.util;
 
 //새 (공통: 일반 ,추상) : 새는 날수 있다 , 새는 빠르다
 public class Bird {

@@ -1,7 +1,7 @@
 package org.example.inherit;
 
 
-import org.example.inherit.util.Bird;
+import org.example.util.Bird;
 
 class Bi extends Bird {
 	//moveFast 재정의
