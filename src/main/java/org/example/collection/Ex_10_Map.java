@@ -12,6 +12,6 @@ Map 인터페이스를 구현하는 클래스는 2개인데
 신버전(HashMap) : 동기화보장 X, 락은 옵션, 성능 더 좋음
 
  */
-public class Ex10_Map {
+public class Ex_10_Map {
 
 }

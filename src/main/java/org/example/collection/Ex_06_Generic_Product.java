@@ -18,13 +18,13 @@ public class Ex_06_Generic_Product {
         person.add(new Emp(2000,"왕수"));
 
         for (Emp e : person) {
-            System.out.println(e.getEmpno());
-            System.out.println(e.getEname());
+            System.out.println(e.getClass().getName());
+//            System.out.println(e.getEname());
         }
 
-        for (int i = 0; i < person.size(); i++) {
-            System.out.println(person.get(i).getEmpno());
-            System.out.println(person.get(i).getEname());
-        }
+//        for (int i = 0; i < person.size(); i++) {
+//            System.out.println(person.get(i).getEmpno());
+//            System.out.println(person.get(i).getEname());
+//        }
     }
 }
