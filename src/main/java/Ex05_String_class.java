@@ -6,11 +6,11 @@ String 은 수많은 일반함수과 static 함수를 가지고 있다. -> Strin
 
 public class Ex05_String_class {
 
-//    String str = "";
-//    String[] str1 = {"ad","dd","fd"};
-//
-//    for (String s : str1) {
-//        System.out.println(s);
-//    }
+    String str = "";
+    String[] str1 = {"ad","dd","fd"};
+
+    for (String s : str1) {
+        System.out.println(s);
+    }
 
 }
