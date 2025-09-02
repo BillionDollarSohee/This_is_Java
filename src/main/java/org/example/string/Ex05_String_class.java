@@ -1,3 +1,4 @@
+package org.example.string;
 /*
 8(기본타입) + 1(String)
 문자열을 다룰 때 그냥 쓰기보다는 조작 (자르고, 합치고, 나누고, 기능)을 하기 쉽게
@@ -5,12 +6,13 @@ String 은 수많은 일반함수과 static 함수를 가지고 있다. -> Strin
  */
 
 public class Ex05_String_class {
+    public static void main(String[] args) {
+        String str = "";
+        String[] str1 = {"ad", "dd", "fd"};
 
-    String str = "";
-    String[] str1 = {"ad","dd","fd"};
-
-    for (String s : str1) {
-        System.out.println(s);
+        for (String s : str1) {
+            System.out.println(s);
+        }
     }
 
 }
