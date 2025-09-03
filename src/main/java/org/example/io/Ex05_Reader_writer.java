@@ -22,7 +22,7 @@ public class Ex05_Reader_writer {
 
         try {
             fr = new FileReader(path);
-            fw = new FileWriter("copy_Ex01.txt");
+            fw = new FileWriter("copy_Ex01.txt",true);
             int data = 0;
             while((data = fr.read()) != -1) {
                 System.out.println(data);

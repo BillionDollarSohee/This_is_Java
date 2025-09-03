@@ -12,7 +12,7 @@ public class Lotto {
 
     // 번호 출력
     public void printRandNum() {
-    	
+
         System.out.printf("[ ");
         for(int randNum : randNums) {
             System.out.printf("%d ",randNum);
@@ -52,7 +52,7 @@ public class Lotto {
 		//배열로 새로들어올 숫자를 기존배열에서 중복되는지 확인후 중복되면 true 종복안되면 false 로 반환
 		for(int i=0; i<index;i++){
 			if(numbers[i] == randNum){
-				System.out.println("중복값 추출 중복된 값 randNum = " + numbers[i]);
+//				System.out.println("중복값 추출 중복된 값 randNum = " + numbers[i]);
 					return true;
 				}
 		}
@@ -64,11 +64,11 @@ public class Lotto {
 		do {
 			bonusNum = (int) (Math.random() * 45) + 1;
         }while(validDupNum(luckyNumber ,3, bonusNum));
-		
+
 		System.out.println("\n보너스 추첨 진행");
 		System.out.println(" 3 : 로봇청소기 \n 7 : 황금 5돈 \n 10 : 최신식 스마트 TV \n  보너스 넘버 " + bonusNum + " : 1억");
 		// 3 7 10 보너스넘버 포함
-		
+
 		for(int num : randNums){
 			if(luckyNumber[0] == num){
 				System.out.println("로청 상품 당첨!");
