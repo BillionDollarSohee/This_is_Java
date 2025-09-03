@@ -15,7 +15,7 @@ public class LottoApp_File {
              BufferedOutputStream bos = new BufferedOutputStream(fos)) {
 
             for (int i = 0; i < numOfTickets; i++) {
-                // 5개 번호 생성 + 정렬
+                // 6개 번호 생성 + 정렬
                 int[] numbers = lotto.pickFiveRandomNumbers();
                 lotto.bubbleSort(numbers);
 

@@ -4,7 +4,7 @@ public class Lotto_File {
     private int[] randNums; // 로또 번호
 
     public Lotto_File(){
-        randNums = new int[5]; // 5개 번호로 변경
+        randNums = new int[6]; // 5개 번호로 변경
     }
 
     // 번호 출력 + 문자열 반환
