@@ -9,7 +9,8 @@ public class LottoApp_File {
         Lotto_File lotto = new Lotto_File();
         int numOfTickets = 5;
 
-        String path = "D:\\Temp\\lotto.txt";
+//        String path = "D:\\Temp\\lotto.txt";
+        String path = "C:\\Users\\lisso\\Desktop\\MSA\\Temp\\lotto.txt";
 
         try (FileOutputStream fos = new FileOutputStream(path);
              BufferedOutputStream bos = new BufferedOutputStream(fos)) {

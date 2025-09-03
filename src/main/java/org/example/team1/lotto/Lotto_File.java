@@ -4,7 +4,7 @@ public class Lotto_File {
     private int[] randNums; // 로또 번호
 
     public Lotto_File(){
-        randNums = new int[6]; // 5개 번호로 변경
+        randNums = new int[6];
     }
 
     // 번호 출력 + 문자열 반환
@@ -20,7 +20,7 @@ public class Lotto_File {
         return sb.toString();               // 파일 저장용
     }
 
-    // 랜덤 번호 5개 추출
+    // 1 ~ 45 범위의 랜덤 번호 추출
     public int[] pickFiveRandomNumbers() {
         for (int i = 0; i < randNums.length; i++) {
             int temp;
@@ -33,7 +33,7 @@ public class Lotto_File {
     }
 
     // 번호 정렬
-    public int[] bubbleSort(int[] arr) {
+    public void bubbleSort(int[] arr) {
         for(int i = arr.length - 1; i > 0; i--) {
             for(int j = 0; j < i; j++) {
                 if(arr[j] > arr[j+1]) {
@@ -43,7 +43,6 @@ public class Lotto_File {
                 }
             }
         }
-        return arr;
     }
 
     // 중복 체크

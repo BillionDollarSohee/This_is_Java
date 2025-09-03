@@ -51,7 +51,4 @@ class Account {
         return this.transactions;
     }
 
-
-
-
 }
