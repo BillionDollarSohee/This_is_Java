@@ -11,7 +11,7 @@ public class Battery {
 		this.SerialNumber = initSerial();
 	}
 	private String initSerial() {
-		// �̴ֽø��� ����
+        // 일련번호 생성
 		return UUID.randomUUID().toString().replace("-", "").substring(0,10);
 	}
 	public void charging(Battery battery) {

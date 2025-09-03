@@ -10,7 +10,6 @@ public class Student {
     private String no;
 
     Student(String name, String no) {
-//        super(); // 왜 들어가지?
         this.name = name;
         this.no = no;
     }
