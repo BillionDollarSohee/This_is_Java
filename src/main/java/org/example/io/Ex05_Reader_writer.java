@@ -12,7 +12,6 @@ Reader, writer 추상클래스 >> Stream 붙어(Byte)
 
 파일
 FileReader, FileWriter
-
  */
 public class Ex05_Reader_writer {
     public static void main(String[] args) {
