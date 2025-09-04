@@ -1,77 +1,116 @@
 package org.example.team1.book;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Scanner;
 
-
 public class BookManager {
-    private HashMap<Long, Book> bookList = new HashMap<>();
-    private BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-    private void bookCreate(Long ISBN, String bookName, BigDecimal bookPrice) {
-        Book book = new Book(ISBN, bookName, bookPrice);
-        bookList.put(ISBN,book);
-        bookList.get(ISBN).toString();
-    }
+    Scanner scan = new Scanner(System.in);
 
-    private void getBook(Long ISBN) {
-        if (bookList.containsKey(ISBN)) {
-            bookList.get(ISBN).toString();
-        }
-    }
-
-    private void getBookList() {
-        System.out.println("도서 수 : " + bookList.size());
-
-        for (int i = 0; i < bookList.size(); i++) {
-            System.out.println(bookList.get(i).toString());
-        }
-    }
-
-    private void delete(Long ISBN) {
-        bookList.remove(ISBN);
-        System.out.println("삭제하였습니다.");
-    }
+    HashMap<Long, Book> book_dic = new HashMap<>();
 
     public void Run() {
+        int key = 0;
 
-//        while (true) {
-//            System.out.println("1:추가 2:삭제 3:검색 4:도서 목록 5:ISBN 목록 0:종료");
-//            int menu = Integer.parseInt(br.readLine());
-//
-//            switch (menu) {
-//
-//                case 1 -> {
-//                    System.out.printf("추가할 도서");
-//                    long inputISBN = Long.parseLong(br.readLine());
-//                    System.out.printf("도서 제목");
-//                    String  inputBookName = br.readLine();
-//                    System.out.printf("가격");
-//                    BigDecimal inputBookPrice = br.readLine();
-//                    bookCreate(inputISBN,inputBookName,inputBookPrice);
-//                }
-//
-//                case 2 ->
-//
-//                case 3 ->
-//
-//                case 4 ->
-//
-//                case 5 ->
-//
-//                case 0 -> {
-//                    System.out.println("종료합니다...");
-//                    return;
-//                }
-//                default -> System.out.println("잘못된 메뉴 선택입니다.");
-//
-//            }
-//
-//        }
-
+        while ((key = selectMenu()) != 0) {
+            switch (key) {
+                case 1:
+                    addBook();
+                    break;
+                case 2:
+                    removeBook();
+                    break;
+                case 3:
+                    searchBook();
+                    break;
+                case 4:
+                    listBook();
+                    break;
+                case 5:
+                    listISBN();
+                    break;
+                default:
+                    System.out.println("잘못 선택하였습니다.");
+                    break;
+            }
+        }
+        System.out.println("종료합니다...");
     }
 
+    int selectMenu() {
+        System.out.println("1:추가 2:삭제 3:검색 4:도서 목록 5:ISBN 목록 0:종료");
+        int key = scan.nextInt();
+        scan.nextLine();
+        return key;
+    }
+
+    void addBook() {
+        System.out.print("추가할 도서 ISBN(Long): ");
+        Long isbn = scan.nextLong();
+        scan.nextLine();
+
+        if (book_dic.containsKey(isbn)) {
+            System.out.println("이미 존재하는 ISBN입니다.");
+            return;
+        }
+
+        System.out.print("도서 제목: ");
+        String title = scan.nextLine();
+
+        System.out.print("가격(BigDecimal): ");
+        BigDecimal price = scan.nextBigDecimal();
+        scan.nextLine();
+
+        Book book = new Book(isbn, title, price);
+        book_dic.put(isbn, book);
+
+        System.out.println(book.toString() + " 생성하였습니다.");
+    }
+
+    void removeBook() {
+        System.out.print("삭제할 도서 ISBN(Long): ");
+        Long isbn = scan.nextLong();
+        scan.nextLine();
+
+        if (book_dic.containsKey(isbn)) {
+            book_dic.remove(isbn);
+            System.out.println("삭제하였습니다.");
+        } else {
+            System.out.println("존재하지 않습니다.");
+        }
+    }
+
+    void searchBook() {
+        System.out.print("검색할 도서 ISBN(Long): ");
+        Long isbn = scan.nextLong();
+        scan.nextLine();
+
+        if (book_dic.containsKey(isbn)) {
+            Book book = book_dic.get(isbn);
+            System.out.println("검색 결과 >> " + book.toString());
+        } else {
+            System.out.println("존재하지 않습니다.");
+        }
+    }
+
+    void listBook() {
+        System.out.println("도서 목록");
+        int cnt = book_dic.size();
+        System.out.println("도서 수: " + cnt);
+
+        for (Book book : book_dic.values()) {
+            System.out.println(book.toString());
+        }
+    }
+
+    void listISBN() {
+        System.out.println("ISBN 목록");
+        int cnt = book_dic.size();
+        System.out.println("도서 수: " + cnt);
+
+        for (Long isbn : book_dic.keySet()) {
+            System.out.println(isbn);
+        }
+    }
 }
