@@ -1,10 +1,9 @@
 package org.example.team1.book;
 
-public class BookManagement {
+public class BookMain {
     public static void main(String[] args) {
         BookManager bm = new BookManager();
         bm.Run();
-
 
     }
 }

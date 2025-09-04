@@ -2,10 +2,12 @@ package org.example.team1.book;
 
 import lombok.Getter;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 @Getter
-public class Book {
+public class Book implements Serializable {
+//    private static final long serialVersionUID = 1l; //시리얼 라이즈 버전 관리를 직접 하고 싶으면
     private Long ISBN;
     private String bookName;
     private BigDecimal bookPrice;
