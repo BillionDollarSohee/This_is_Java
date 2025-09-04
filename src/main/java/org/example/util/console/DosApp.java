@@ -44,7 +44,7 @@ public class DosApp {
                     } else {
                         System.out.println("경로를 제대로 입력해주세요.");
                     }
-
+                    break;
                 case "EXIT":
                     app.exitSystem();
                     break;
