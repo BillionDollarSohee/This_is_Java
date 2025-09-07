@@ -5,11 +5,11 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Student {
+public class No1_Student {
     private String name;
     private String no;
 
-    Student(String name, String no) {
+    No1_Student(String name, String no) {
         this.name = name;
         this.no = no;
     }

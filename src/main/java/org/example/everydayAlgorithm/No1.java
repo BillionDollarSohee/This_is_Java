@@ -16,17 +16,17 @@ while, flog, ArrayList, for-each 사용
  */
 public class No1 {
     public static void main(String[] args) throws IOException {
-        List<Student> students = new ArrayList<>();
+        List<No1_Student> no1Students = new ArrayList<>();
 
-        Student student1 = new Student("소희", "3463");
-        Student student2 = new Student("기현", "2355");
-        Student student3 = new Student("가연", "4567");
+        No1_Student no1Student1 = new No1_Student("소희", "3463");
+        No1_Student no1Student2 = new No1_Student("기현", "2355");
+        No1_Student no1Student3 = new No1_Student("가연", "4567");
 
-        students.add(student1);
-        students.add(student2);
-        students.add(student3);
+        no1Students.add(no1Student1);
+        no1Students.add(no1Student2);
+        no1Students.add(no1Student3);
 
-        for (Student s : students) {
+        for (No1_Student s : no1Students) {
             System.out.println(s.getName());
             System.out.println(s.getNo());
         }
@@ -43,7 +43,7 @@ public class No1 {
                 String name = br.readLine();
                 boolean flag = false;
 
-                for (Student s : students) {
+                for (No1_Student s : no1Students) {
                     if (s.getName().equals(name)) {
                         System.out.println("해당 학생의 학번은: " + s.getNo());
                         flag = true;
@@ -60,7 +60,7 @@ public class No1 {
             }
         }
         System.out.println("시스템이 종료되었습니다.");
-
+        br.close();
     }
 }
 

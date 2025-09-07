@@ -18,7 +18,7 @@ class Student{
 
     @Override
     public String toString() {
-        return "Student{name=" + name + ", kor=" + kor + ", math=" + math + ", eng=" + eng + "}";
+        return "No1_Student{name=" + name + ", kor=" + kor + ", math=" + math + ", eng=" + eng + "}";
     }
 }
 
@@ -32,7 +32,7 @@ public class Ex_12_Map_Generic {
         stm.put("A","AAA");
         System.out.println(stm.get("A"));
 
-        // Student 객체 Map
+        // No1_Student 객체 Map
         HashMap<String, Student> smap = new HashMap<>();
         smap.put("hong",new Student(100,43,50,"지수"));
         smap.put("lee",new Student(100,43,50,"왕수"));
@@ -51,7 +51,7 @@ public class Ex_12_Map_Generic {
         while (it.hasNext()) {
             Object obj = it.next();               // Object 타입으로 받음
             Map.Entry entry = (Map.Entry) obj;    // 다운캐스팅 (Object → Map.Entry)
-            Student st = (Student) entry.getValue(); // 다운캐스팅 (Object → Student)
+            Student st = (Student) entry.getValue(); // 다운캐스팅 (Object → No1_Student)
 
             System.out.println(st.name + " / 국어: " + st.kor + " / 수학: " + st.math + " / 영어: " + st.eng);
         }
