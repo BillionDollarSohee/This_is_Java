@@ -1,4 +1,4 @@
-package org.example.util.bmi;
+package org.example.team1.bmi;
 
 import java.util.HashMap;
 import java.util.Scanner;

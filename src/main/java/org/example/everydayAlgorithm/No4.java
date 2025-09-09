@@ -33,9 +33,9 @@ public class No4 {
         StringBuilder binaryString = new StringBuilder();
 
         while (input > 0) {
-            int remainder = input % 2; // 2로 나눈 나머지를 저장합니다.
+            int remainder = input % 2;        // 2로 나눈 나머지를 저장합니다.
             binaryString.append(remainder);   // 나머지를 StringBuilder에 추가합니다.
-            input /= 2;               // 몫을 다음 반복에 사용합니다.
+            input /= 2;                       // 몫을 다음 반복에 사용합니다.
         }
 
         System.out.println(binaryString.reverse().toString()); // 나머지를 역순으로 출력합니다.

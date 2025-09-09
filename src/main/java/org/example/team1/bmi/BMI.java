@@ -1,4 +1,4 @@
-package org.example.util.bmi;
+package org.example.team1.bmi;
 
 import java.io.Serializable;
 import java.util.Scanner;
