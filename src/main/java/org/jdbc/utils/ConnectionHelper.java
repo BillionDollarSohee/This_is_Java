@@ -22,8 +22,8 @@ public class ConnectionHelper {
                     break;
                 case MARIADB:
                     conn = DriverManager.getConnection(
-                            "jdbc:oracle:thin:@127.0.0.1:3306/shopdb",
-                            "KOSA",
+                            "jdbc:mariadb://127.0.0.1:3306/mydb",
+                            "root",
                             "1004"
                     );
                     break;

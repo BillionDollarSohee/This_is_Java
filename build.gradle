@@ -23,7 +23,11 @@ dependencies {
         testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
         //JDBC
-        implementation 'com.oracle.database.jdbc:ojdbc11:23.3.0.23.09'
+//        implementation 'com.oracle.database.jdbc:ojdbc11:23.3.0.23.09'
+
+        //MariaDB
+        implementation 'org.slf4j:slf4j-simple:2.0.7'
+        implementation 'org.mariadb.jdbc:mariadb-java-client:3.4.1'
     }
 }
 
