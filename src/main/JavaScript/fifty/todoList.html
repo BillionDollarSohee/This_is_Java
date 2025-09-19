@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo List</title>
+    <style>
+        body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        font-size: 18px; /* 전체 기본 글씨 크기 키움 */
+        text-align: center;
+        }
+
+        .logo {
+        width: 40px;
+        height: 40px;
+        vertical-align: middle; /* 글자와 수직 정렬 */
+        margin-right: 10px;      /* 글자랑 간격 */
+        }
+
+        h1 {
+        font-size: 32px;           /* 글씨 크기 */
+        color: #2c3e50;          /* 글씨 색상 */
+        text-align: center;        /* 가운데 정렬 */
+        margin-bottom: 20px;       /* 아래 여백 */
+        }
+
+        #todo-input, .edit-input {
+        font-size: 16px;
+        padding: 8px;
+        width: 250px;
+        box-sizing: border-box;
+        }
+
+        #add-btn {
+        font-size: 16px;
+        padding: 8px 15px;
+        }
+
+        #todo-list li {
+        list-style-type: none;
+        margin: 12px 0;
+        font-size: 18px; /* 글씨 크기 */
+        text-align: center;
+        }
+
+        #todo-list button {
+        font-size: 16px;
+        padding: 5px 10px;
+        margin-left: 8px;
+        }
+
+        button,
+        input[type="button"] {
+        border-radius: 4px;        /* 모서리 둥글게 */
+        padding: 8px 16px;
+        font-size: 15px;
+        border: 1px solid #ccc;     /* 테두리 */
+        background-color: #f5f5f5;  /* 기본 배경 */
+        transition: background 0.3s;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<h1><span id="logo"></span>📝 ToDo List</h1>
+
+<!-- 입력창 & 추가 버튼 -->
+<input type="text" id="todo-input" size="30" placeholder="할 일을 입력하세요">
+<input type="button" id="add-btn" value="추가">
+
+<!-- 할 일 리스트가 들어갈 영역 -->
+<ul id="todo-list"></ul>
+
+<script>
+    // JSON 데이터 (초기값)
+    let users = {
+      "name": "sohee",
+      "todo": [
+        { "task": "아침먹기", "done": false },
+        { "task": "코딩하기", "done": false },
+        { "task": "양치하기", "done": true }
+      ]
+    };
+
+    // localStorage에 저장 (처음 실행 시)
+    if (!localStorage.getItem("users")) {
+      localStorage.setItem("users", JSON.stringify(users));
+    } else {
+      // 저장된 게 있으면 불러오기
+      users = JSON.parse(localStorage.getItem("users"));
+    }
+
+    // 할 일 추가 함수
+    function addTodo() {
+      let input = document.getElementById("todo-input");
+      let newTask = input.value.trim();
+
+      if (newTask !== "") {
+        // todo 배열에 새 할 일 추가
+        users.todo.push({ task: newTask, done: false });
+
+        // localStorage 갱신
+        localStorage.setItem("users", JSON.stringify(users));
+
+        // 화면에 출력
+        render();
+
+        // 입력창 비우기
+        input.value = "";
+      }
+    }
+
+    // 버튼 클릭 시 추가
+    document.getElementById("add-btn").addEventListener("click", addTodo);
+
+    // 엔터 입력 시 추가
+    document.getElementById("todo-input").addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        addTodo();
+      }
+    });
+
+    // 화면에 리스트 출력하는 함수
+    function render() {
+    let list = document.getElementById("todo-list");
+    list.innerHTML = "";
+
+    users.todo.forEach((item, index) => {
+        let li = document.createElement("li");
+
+        // ===== 텍스트 표시 부분 =====
+        let span = document.createElement("span");
+        span.textContent = item.task;
+        li.appendChild(span);
+
+        // ===== 수정 버튼 =====
+        let editBtn = document.createElement("button");
+        editBtn.textContent = "수정";
+        editBtn.addEventListener("click", () => {
+        // input 태그 생성
+        let input = document.createElement("input");
+        input.type = "text";
+        input.value = item.task;
+        input.size = 30;
+        input.className = "edit-input";
+
+        // 저장 버튼
+        let saveBtn = document.createElement("button");
+        saveBtn.textContent = "저장";
+        saveBtn.addEventListener("click", () => {
+            let newTask = input.value.trim();
+            if (newTask !== "") {
+            users.todo[index].task = newTask;
+            localStorage.setItem("users", JSON.stringify(users));
+            render();
+            }
+        });
+
+        // li 안 비우고 교체
+        li.innerHTML = "";
+        li.appendChild(input);
+        li.appendChild(saveBtn);
+        });
+
+        // ===== 삭제 버튼 =====
+        let delBtn = document.createElement("button");
+        delBtn.textContent = "삭제";
+        delBtn.addEventListener("click", () => {
+        users.todo.splice(index, 1);
+        localStorage.setItem("users", JSON.stringify(users));
+        render();
+        });
+
+        li.appendChild(editBtn);
+        li.appendChild(delBtn);
+        list.appendChild(li);
+    });
+    }
+
+    // 페이지 로드 시 기존 데이터 출력
+    render();
+</script>
+
+</body>
+</html>
