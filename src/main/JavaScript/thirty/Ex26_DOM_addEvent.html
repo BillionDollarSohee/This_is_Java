@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        /*
+        https://www.w3schools.com/js/js_htmldom_eventlistener.asp
+
+        element.addEventListener(event, function, useCapture);
+        element.addEventListener("click", function(){alert("Hello World!"); });
+        
+        1. document.getElementById("myBtn").addEventListener("click", displayDate);
+        2. 하나의 요소에 여러개의 이벤트를 걸 수도 있고, 필요없다면 이벤트를 제거할 수도 있다. 
+        2.1 이벤트 추가: addEventListener
+        2.2 이벤트 제거: removeEventListener 
+        
+        */
+    </script>
+</head>
+<body>
+    <button id="myBtn">Try it</button>
+    <p id="demo"></p>
+</body>
+<script type="text/javascript">
+    //  위에가 다 로딩된 후에 실ㄹ행하겠다. 
+    document.getElementById("myBtn").addEventListener("click", displayDate);
+    // 리스너: 귀 기울이고 듣고 있다가 이벤트 발생하면 반응
+    function displayData(){
+        document.getElementById("demo").innerHTML = new Date();
+    }
+
+</script>
+</html>

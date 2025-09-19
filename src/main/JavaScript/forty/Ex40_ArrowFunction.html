@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Insert title here</title>
+    </head>
+    <body>
+        <p id = "demo"></p>
+        <p id = "demo2"></p>
+
+        <script type = "text/javascript">
+            // https://www.w3schools.com/js/js_arrow_function.asp
+
+    // 일반함수
+    // function foo() {}
+
+    // 익명함수
+    let foo = function(){ // 함수는 일급객체( 함수가 변수에 할당될 수 있다.) 
+        console.log("foo...");
+    }
+
+    // 실행방법
+    foo();
+
+    // 2015 ES6 함수의 줄임 표현(Arrow Function)
+    let bar = () => console.log("bar..");
+    // bar라는 변수에 함수를 할당한건데, 그 함수의 실행내용은 이거다.
+    // 실행방법
+    bar();
+
+    // 매개변수 1개, return 함수
+    let foo2 = x => x; // let foo2 = function(x) {return x;}
+    // 함수 입력 파라미터가 있을 경우 () 괄호도 빼버림 
+
+    const data = foo2(100);
+    console.log(data);
+
+    let hello = val => "hello" + val ;
+    // hello = function(val){return "hello" + val;}
+    console.log(hello(" world"));
+
+    // 매개변수 2개 이상일 경우??
+    // function call(a, b) or function call(a, b, c, d)
+    // let foo3 = (a, b) => {return a+b}; // 이렇게 써줘도 되긴 함. 하지만 굳이 줄여서 쓸 수 있는데 ??
+    let foo3 = (a, b) => a + b;
+    console.log(foo3(1, 3));
+
+    // 함수의 실행 블럭에. 만약에 함수 안에 여러개의 논리가 필요하면? (if, switch ..) 논리가 필요하면 괄호가 필요해 
+    let foo4 = (a, b) => {
+                            let c = 100; 
+                            return a + b + c;
+                        }
+    console.log(foo4(1, 2));
+
+    // 응용 문제
+    // 함수가 return이 json 객체라면 ? 
+    let foo5 = () => ({a: 1, b: 2, c: 3}); // 얘는 문법임 그냥 외우ㅜㅡ라 
+    console.log(foo5());
+    
+    // 독특한 함수: 즉시 실행 함수(암기하세용) - 함수를 불러오지 않았는데 즉시 실행되는 !
+    (
+        function(){
+            console.log("즉시 실행 함수")
+        }()
+    )
+    
+           /*
+           초급자도 알아야 할 암기
+           1. for(let i = 0; i < 10; i++){}
+           2. for(let index in Array) {Array[index]}
+           3. for(let value of Array) {value}
+
+           객체 (Json)
+           1. for(let key in Object){Object[key]} ex)json객체 변수를 던지면 값을 얻을 수 있다.
+           배열이 아니라 객체도 for문돌고 그러면 키값이 나오고 그걸로 값을 얻을 수 있다.
+           2. const obj = {a:1} >> (객체.속성명) obj.a return 1
+           
+           
+           추가적으로 알면 편안해지는 좋은 것들
+           1. Array.isArray()
+           2. Array.forEach(function(value, index,array())) //재귀적으로 호출하면서 배열의 값, 인덱스 ,전체값을 가져옴
+           3. Array.map() > 새로운 조작된 배열을 생성한다 ex)배열의 값에 1을 더하겠다.
+           */
+
+           function myFunc() {
+            const data = ["a","b","c","d"];
+            let x = decument.getElenemtById("demo2");
+            x.innerHTML = Array.isArray(data); // 너 배열이니?
+           }
+
+           myFunc();
+
+           let txt = "";
+           const numbers = [45,5,8,16,25];
+           
+           // 배열 개수만큼 호출되는 것을 알 수 있다.
+           function myFunc2(value, index, array) {
+            txt = "(" + value + ") " + "[" + index + "] " + "[" + array + "] ";
+            console.log(txt);
+           }
+
+           numbers.forEach(myFunc2);
+           /*
+           (45)[0][45,5,8,16,25]
+           (5) [1][45,5,8,16,25]
+           (8) [2][45,5,8,16,25]
+           (16)[3][45,5,8,16,25]
+           (25)[4][45,5,8,16,25]
+           */
+
+           // 복제한 새로운 배열에 가공된 데이터가 들어감
+           const number2 = [65,44,12,4];
+           const newArr = number2.map(function(value, index, array){
+            return value * 10 + index;
+           });
+           console.log(newArr);
+
+           // 화살표 함수 사용하기
+           let evens = [2,4,6,8];
+           let odds1 = evens.map(function(value){return value + 1});
+           let odds2 = evens.map(value => value + 1);
+
+           console.log(odd2);
+
+           let num2 = evens.map(function(value, index) {return value + index})
+           let num22 = evens.map((value, index) => value + index);
+
+           let arr = [];
+           evens.forEach(value => {
+                if (value % 2 === 0) {
+                    arr.push(value);
+                }
+            });
+            console.log(arr); // map
+        </script>
+    </body>
+</html>

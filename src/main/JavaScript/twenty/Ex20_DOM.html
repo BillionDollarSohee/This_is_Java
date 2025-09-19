@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		.democlass {color: red;}
+	</style>
+</head>
+<body>
+	<div id="div">
+		<h1 class="democlass">Hello world_1</h1>
+		<h1 class="democlass">Hello world_2</h1>
+		<h1 class="democlass">Hello world_3</h1>
+	</div>
+    
+</body>
+    <script type="text/javascript">
+        //document.getElementsByTagName("h1")[0].removeAttribute('class');
+        /*
+        let harray = document.getElementsByTagName("h1");
+        console.log(harray); // 배열 
+
+        for(let i = 0; i < harray.length; i++){
+            console.log(harray.length);
+            harray[i].removeAttribute('class');
+        }
+        */
+        // h1 태그 가져와 index별로 돌아 div 태그의 자식을 지우겠음 -> 논리적으로 문제 있음 
+        // 0번째 지우면 뒤에 있던 것들이 앞으로 채워짐. 그다음 1번째 지우면 hello world_2만 남게 됨 
+        /*
+        let array = document.getElementsByTagName("h1");
+        for(let index in array){
+            console.log(array[index]);
+            console.log("index: " + index + "-length: " + array.length);
+            document.getElementById("div").removeChild(array[index]);
+        }
+        */
+        // 요 방법 괜찮은듯 
+        let arr = document.getElementsByTagName("h1");
+        let len = arr.length; // 3
+        for (let i = 0; i < len; i++){
+            arr[arr.length-1].remove();
+        }
+
+        const parent = document.getElementById('div');
+        const list = parent.getElementsByTagName('h1'); // 이 부모의 h1만
+        for (let i = list.length - 1; i >= 0; i--) {
+            console.log("i : " + i);
+            parent.removeChild(list[i]);
+        }
+    </script>
+</html>

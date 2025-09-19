@@ -1,0 +1,37 @@
+<!-- 2025.9.18 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+        /*
+        https://www.w3schools.com/jsref/met_win_setinterval.asp
+
+        myInterval = setInterval(function, milliseconds);
+
+        setInterval(function(){}, 1000); 1초마다 함수가 호출(callback 함수) 
+
+        function call(){}
+        setInterval(call(), 1000);
+
+        1. 익명함수(일회성): 재사용하지 않을꼬야 -> function(){}
+        2. callback    : (포괄적인 개념에서 보자구) 프로그램 논리에 의해서 자동 호출되는 함수 
+        2.1 1초마다 재호출된다. 누가? 익명함수가 ! -> setInterval(function(){}, 1000);
+        */
+        let myTimer = window.setInterval(function(){
+            let d = new Date(); // Date 객체 생성 
+            let t = d.toLocaleTimeString();
+            document.getElementById("time").innerHTML = t;
+        }, 1000)
+
+        function myTimerStop(){
+            window.clearInterval(myTimer);
+        }
+    </script>
+</head>
+<body>
+    <p id="time"></p>
+    <button onclick="myTimerStop()">stop time</button>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        /*
+        https://www.w3schools.com/tags/ref_eventattributes.asp
+
+        Event	Description
+        onchange	An HTML element has been changed
+        onclick	The user clicks an HTML element
+        onmouseover	The user moves the mouse over an HTML element
+        onmouseout	The user moves the mouse away from an HTML element
+        onkeydown	The user pushes a keyboard key
+        onload	The browser has finished loading the page
+        
+        POINT!!
+        onload: body 안에 모든 요소가 웹 브라우저 메모리에 로딩되고 난 직후 자동으로 사건이 발생해용 
+                어떤 사건이 발생하면 함수를 실행할거. 함수가 호출되었을 때 모든 요소는 DOM 객체로 존재 
+        */
+        function bodyLoad(){
+            // 이 함수의 호출 시점은 onload되었을 때
+            console.log("loading... ");
+            // 함수에서는 body 안에 있는 모든 요소를 가지고 놀 수 있다
+            const data = document.myform.money.value;
+            console.log(isNaN(data)); // false면 나 숫자임 
+        }
+
+        function focusFunc(){
+            // focus가 들어오면
+            document.getElementById("myinput").style.background="gold"; // 동적으로 스타일 적용 
+        }
+
+        function blurFunc(){
+            document.getElementById("myinput").style.background="white"; // 동적으로 스타일 적용 
+        }
+
+        function selectTag(){
+            const value = document.myform.sel.value; 
+            alert(value); 
+        }
+        // POINT!!!!
+        // 자바에서 this는 객체 자신을 가리킴 
+        // javascript에서 this는 무진장 중요!
+        // 1. this: 요소 자신을 가리킴 
+        function changeColor(obj){
+            console.log(obj); // 요소자신, 요소 전체를 가리키는구나 !
+            obj.style.backgroundColor="gold"; // 이 요소에 스타일을 먹요 골드로 만들겠다 
+        }
+
+        function changeColor2(obj){
+            console.log(obj);
+            obj.style.backgroundColor='white';
+        }
+    </script>
+</head>
+<!-- Body 요소에 onload를 걸고 bodyLoad() 함수를 불러와쓰 -->
+<!-- 브라우저가 body 안의 모든 요소를 DOM으로 메모리에 올린 직후 bodyLoad() 함수가 호출됨 -->
+<body onload="bodyLoad()">
+    <form action="#" name="myform">
+        <input type="text" id="myinput" name="myinput" onfocus="focusFunc()"  onblur="blurFunc()">
+        <br>
+        <!-- select 태그는 배열로 저장할 수 있음  -->
+        <select name="sel" onchange="selectTag()">
+            <option value="A">AA</option>
+            <option value="B">BB</option>
+            <option value="C">CC</option>
+            <option value="D">DD</option>
+        </select>
+        <br>
+        <!-- 여기서 this는 input 태그 전체를 가리킴, 요소 자신 -->
+        <input type="text" onmouseover="changeColor(this)" onmouseout="changeColor2(this)">
+        <input type="text"><br>
+        <input type="text" value="1000" name="money">
+    </form>	
+</body>
+</html>

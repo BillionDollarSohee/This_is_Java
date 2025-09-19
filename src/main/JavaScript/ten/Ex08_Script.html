@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>유효성 검증</title>
+	<script type="text/javascript">
+		function send(){
+			
+			//유효성 검증 (개발자 정의 : 규칙) > 서버로 전송
+			//클라이언 브라우져에서 검증하고 문제가 없으면 ... 서버로 전송 
+			
+			//요소(태그 정보)가지고 와서 값도 확인 ....검증
+			//1. document.forms[0].elements[0].value 전통적인 (....) (권장 x)
+			//2. 권장사항
+			//DOM script 쓰세용 
+			// document.getElementById("aaa") > 모든 요소는 id= 속성을 가지고 있어야 한다 (id값 넣어서 쓰는게 좋다아)
+            // name 서버 쪽에서 받을 때 
+			
+			
+			const userid= document.loginForm.txtuserid;
+			//userid > <input type="text" name="txtuserid">
+			console.log(userid);
+			console.log(userid.value);
+			
+			
+			//id 있으면 DOM script 접근 용이하니까 아래와 같이 쓰면 좋겠다아 
+			const pwd = document.getElementById("txtpwd");
+			console.log(pwd);
+			console.log(pwd.value);
+			
+			//검증 로직(요구사항 반영)
+			//1. 값의 입력 유무 (빈 값이냐 아니냐 )
+			//2. 입력한 값이 로직(요구사항) 맞는지 검증 (내가 원하는 값을 가지고 있느냐 )
+			
+			//검증 통과하면 안전하게 서버로 전송 ...
+			//검증 통과하지 못하면 값을 다시입력하도록 처리 (서버로 전송하지 않아요)
+
+			if(userid.value == "" || !(userid.value.length >= 3 && userid.value.length <=10)){
+				alert("다시 입력해라 ^____^");
+				document.loginForm.txtuserid.focus();
+				userid.select(); //커서가 가고 기존값을 블럭 잡아주기
+			}else{
+				alert("검증 완료 b");
+				// 서버로 전송
+				document.loginForm.action="Ex08_ok.jsp";
+				document.loginForm.submit(); //input type=submit
+			}
+		}
+	</script>
+</head>
+<body>
+		<form action="" method="get" name="loginForm">
+			ID:<input type="text" name="txtuserid"><br>
+			PWD:<input type="password" name="txtpwd"  id="txtpwd"><br>
+			<input type="button" value="전송" onclick="send()">
+			<!--  서버로 보내는 방법 3가지 
+				<input type=submit
+				<input type=image
+				<input type=button 별도의 구현 onclick="함수를 통해서 전송"
+			-->
+		</form>
+</body>
+</html>

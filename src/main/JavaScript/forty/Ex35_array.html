@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script type="text/javascript">
+        let array = ["포도", "사과", "배", "귤"]; //내부 자료구조는 스택이지만 자유롭게 사용 가능
+        console.log(array.toString()); // Object to String 재정의
+        console.log(array);
+
+        // 일반포문
+        for(let i = 0; i < array.length; i++) {
+            console.log(array[i]);
+        }
+
+        // in 포문
+        for(let index in array) {
+            console.log(array[index]);
+        }
+
+        // of 포문
+        for(let value of array) {
+            console.log(value);
+        }
+
+        array[4] = "복숭아"; // 유연하게 추가 가능
+        console.log(array.toString() + " / " + array.length);
+        
+        // 권장하진 않지만 가능한 것들
+        array[7] = "망고"; // 중간에 빈 공간이 생김 --> 포도,사과,배,귤,복숭아,,,망고 / 8
+        console.log(array.toString() + " / " + array.length);
+
+        let array2 = ["one", "two", "three"];
+        array2.length = 2; // 길이를 줄이면 잘림 --> one,two / 2
+        console.log(array2 + " / " + array2.length);
+        array2.length = 5;
+        
+        // 좋은 냄새가 나는 코드
+        let array3 = [];
+        array3.push("first");
+        array3.push("second");
+        console.log(array3.pop());
+    </script>
+</head>
+<body>
+</body>
+</html>

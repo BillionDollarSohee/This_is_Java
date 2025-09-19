@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        window.onload=function(){
+            /*
+            a 태그에 click 이벤트를 동적으로 부여하고 (addEvent...)
+            다음 >> images/2.jpg 다음 >> images/3.jpg 
+            이전 >> images/4.jpg 
+            */
+            let myPhotos = ["images/1.jpg", "images/2.jpg", "images/3.jpg", "images/4.jpg"]
+            let index = 0;
+            console.log("index: " + index);
+            // document.getElementById("imgs").src = myPhotos[index]
+
+            // prv click
+            document.getElementById("prv").addEventListener("click", function(){
+                if(index==0) {
+                    index = myPhotos.length;
+                } 
+                document.getElementById("imgs").src = myPhotos[--index];
+                
+            });
+            
+            // next click
+            document.getElementById("next").addEventListener("click", function(){
+                if(++index == myPhotos.length) {
+                    index = 0;
+                } 
+                document.getElementById("imgs").src = myPhotos[index];
+            });
+
+        }
+    </script>
+</head>
+<body>
+    <h3>DOM 슬라이드</h3>
+	<img src="images/1.jpg" alt="이미지" id="imgs" width="200" height="200">
+	<hr>
+	<a href="#" id="prv">이전</a>||<a href="#" id="next">다음</a>
+</body>
+</html>

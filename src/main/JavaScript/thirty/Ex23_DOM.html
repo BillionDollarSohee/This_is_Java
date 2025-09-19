@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        window.onload = function(){
+            // DOM 계층트리: node(부모, 자식, 형제 개념을 갖고 있음 )
+            let menode;
+            menode = document.getElementById("me"); // <div id="me">C</div>
+            menode.style.backgroundColor="gold";
+
+            let parentNode = menode.parentNode; 
+            // parentNode는 누굴 가리킴? 계층으로 따지면 바로 위에 있는 녀석 body
+            parentNode.style.backgroundColor = "blue";
+
+            let grandNode = parentNode.parentNode; // html 
+            grandNode.style.backgroundColor = "green";
+            
+            let my = document.getElementById("mychild"); // <ul id="mychild"><li>AA</li><li>BB</li><li>CC</li></ul>
+            console.log(my);
+            console.log(my.firstChild.nodeName); // LI
+            console.log(my.firstChild.innerText); // AA
+
+            // value 속성이 없는 친구들: div, p, li, span
+            // innerHTML, innerText로 제어.
+            // ex) <div>방가방가</div>
+            console.log(my.firstChild.nextSibling.innerText); // BB
+
+            console.log(my.hasChildNodes);
+            console.log(my.childNodes); // 자식 노드 다 가져옴 . 배열로 -> 첨자(index) 접근이 가능 
+            
+            console.log(my.childNodes[0]); // [li, li, li]
+            console.log(my.childNodes.length); // 3
+        }
+    </script>
+</head>
+<body>
+    <div>A</div><div>B</div><div id="me">C</div><div>D</div><div>E</div>
+    <ul id="mychild"><li>AA</li><li>BB</li><li>CC</li></ul>
+</body>
+<script type="text/javascript">
+    // 로딩된 후에 
+</script>
+</html>

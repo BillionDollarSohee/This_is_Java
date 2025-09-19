@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+        function print(){
+            let ele = document.getElementById("demo");
+            console.log(ele);
+            ele.innerHTML="졸리다..";
+            // div, p value 속성이 없어요 
+            // 안쪽에 (innerText, innerHTML)
+        }
+    </script>
+</head>
+<body>
+    <!-- 
+    
+    -->
+    <button onclick="print()">클릭 하시오</button>
+    <p id="demo">
+        domo 라는 id는 p태그를 식별하는 값
+    </p>
+</body>
+</html>

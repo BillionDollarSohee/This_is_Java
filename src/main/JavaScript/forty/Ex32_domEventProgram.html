@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style>
+        ul{ 
+            padding: 0; 
+            list-style-position: inside;
+        }
+        li{
+            border-bottom: 1px solid #999;
+            padding: 5px 0;
+        }
+        #add-btn{
+            padding: 5px 10px;
+            border: 0;
+            background: #f80; 
+            color: white;
+            border-radius: 5px;
+        }
+        
+        .active{ background:gold; } /* step3: 목록 클릭 스타일 */
+    </style>
+</head>
+<body>
+	<h1 id='title'>할일 목록</h1>
+    <button id="add-btn">목록 추가</button>
+    <ul id='list'>
+        <li>제목 1</li>
+        <li>제목 2</li>
+        <li>제목 3</li>
+        <li>제목 4</li>
+    </ul>
+</body>
+	<script type="text/javascript"> // 위의 요소를 가져옴 이게 상단에 있으려면 윈도우 함수 사용해야함
+        let title = document.getElementById("title");
+        let list = document.getElementById("list");
+        let li = document.getElementsByTagName("li");
+        let addBtn = document.getElementById("add-btn");
+
+        function activeItem(event) {
+            console.log(event.target); // 이벤트가 발생한 요소
+            console.log(event.currentTarget); // 이벤트를 가지고 있는 요소
+
+            if(event.target.nodeName === "LI") { // li 요소인지 확인
+                title.innerHTML = event.target.innerText;
+            }
+
+            // 일단 모두 액티브를 제거해.(살짝 편법 같음)
+            for (let i = 0; i < event.target.parentNode.children.length; i++) {
+                event.target.parentNode.children[i].classList.remove("active");
+            }
+
+            event.target.setAttribute("class", "active"); // 클릭한 요소에 클래스 추가
+            
+        }
+
+        // 액티브 모두 제거한 이후에 추가한 부분에만 이벤트 주기
+        list.addEventListener("click", activeItem);
+        addBtn.addEventListener("click", function() {
+            let txt = prompt("제목을 입력하세요");
+            if (txt != null) {
+                list.innerHTML += "<li>" + txt + "</li>";
+            }
+        });
+	</script>
+</html>

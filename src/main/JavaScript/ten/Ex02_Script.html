@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        /*
+        javascript 해석(웹 브라우저: 수많은 자원 -> 객체 -> 내장객체) 
+
+
+        */
+        window.document.write("방가방가<br>");
+
+        //window
+        document.write("window 객체 생략 가능<br>");
+
+        console.log("디버깅, 결과 미리보기, 오류메세지 확인");
+        console.log(10+10);
+
+        // var, let, const
+        //var num; // 타입이 정해져 있지 않아요오 
+        //console.log(num); // undefined 오류 메시지 아니고 정해지지 않았다는 뜻이다 이눔아
+        //num = 10; // 값을 가지는 순간 타입 결정 
+        //conole.log("num " + num);
+
+        console.log(typeof(num)); // number
+
+        let str = "world";
+        console.log(str);
+        console.log(typeof(str)); // string
+
+        // POINT: javascript는 순서대로 실행된다 
+        // let element = window.document.forms[0].elements[0];
+        // console.log(element);
+        // Uncaught TypeError: Cannot read properties of undefined (reading 'elements')
+        function data(){
+            let elemtn = window.document.forms[0].elements[0];
+            alert(element);
+        }
+
+    </script>
+</head>
+<body>
+    <form action="#" method="get" name="myform">
+        <input type="text"     name="userid" value="hong111"><br>
+        <input type="password" name="pwd"    value="1004"><br>
+        <input type="submit" value="전송">
+    </form>
+    
+    <input type="button" value="함수호출" onclick="data()">
+</body>
+<script type="text/javascript">
+    // form 태그가 DOM 객체 형태로 메모리에 올라간 뒤에 메모리에 접근이 가능함 
+    let element = window.document.forms[0].elements[0];
+    console.log(element); // <input type="text" name="userid" value="hong111">
+    console.log(element.value);
+    console.log(element.value.length);
+
+    let value = window.document.myform.userid.value;
+    console.log("value: " + value);
+
+    if (value.length < 5){
+        alert("다시 입력");
+        
+    }
+</script>
+</html>

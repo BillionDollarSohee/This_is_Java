@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+    <!-- 
+		필요하다면 이벤트 전파를 막고,
+        이벤트 버블링과 캡쳐링을 제어할 수 있다.
+	-->
+	<style>
+	#myDiv1, #myDiv2 {
+		background-color: coral;
+		padding: 50px;
+	}
+	
+	#myP1, #myP2 {
+		background-color: white;
+		font-size: 20px;
+		border: 1px solid;
+		padding: 20px;
+	}
+</style>
+</head>
+<body>
+		<h3>addEventListener</h3>
+		
+		<div id="myDiv1">
+			<h2>Bubbling</h2>
+			<p id="myP1">Click me</p>
+		</div>
+		<br>
+		<div id="myDiv2">
+			<h2>Capturing</h2>
+			<p id="myP2">Click me</p>
+		</div>
+		<!-- 
+			capture : true
+			default 값은 false = 버블링을 쓰겠다. = 이벤트 전파
+
+            버블링과 캡처링은 모두 Event.stopPropagation() 또는
+            Event.stopImmediatePropagation() 같은 메서드로 동일한 방식으로 제어할 수 있다.
+		 -->
+</body>
+	<script type="text/javascript">
+		document.getElementById("myP1").addEventListener("click",function(){
+			alert("click white element!");
+		},false); //default false 라 이야기는 기본 buble적용하겠다  //이벤트 전파 
+		
+		document.getElementById("myDiv1").addEventListener("click",function(){
+			alert("click orange element!");
+		},false);
+		
+		
+		document.getElementById("myP2").addEventListener("click",function(){
+			alert("click white element!");
+		},true);  //capture 활성화 바깥 오렌지부터 클릭
+		
+		document.getElementById("myDiv2").addEventListener("click",function(){
+			alert("click orange element!");
+		},true); //capture 활성화
+	</script>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+         
+        // javascript가 갖는 특별한 특성들? ? 
+
+        let str = "10+20+30"; // 문자 
+        document.write(str + "<br>");
+
+        // 1. eval(): 문자열 수식을 계산식으로 변경해줌. 대신, 조건이 있으. "" 벗겼을 때 연산이 가능해야함 
+        //            ex) "10+20+30" > eval() > 10+20+30 / 단, "10+20A+30"은 예외요
+
+        document.write("eval(): " + eval(str) + "<br>");
+
+        // 2. isNaN(): 너 숫자 아이니? Not a Number > true / false(숫자임)
+        document.write(isNaN("12345") + "<br>");  // false
+        document.write(isNaN("12A345") + "<br>"); // true (응 숫자 아님~)
+        document.write(isNaN("대한민국") + "<br>"); // true (숫자 아님~)
+        document.write(isNaN('12345') + "<br>");  // false
+
+        let i = "100";
+        let j = "200";
+        document.write("결합: " + (i+j)); // javascript에서 + 는 산술도 하고 결합도 함 
+        document.write(Number(i) + Number(j)); // 이렇게 하면 연산을 하게 할 수 있음 
+
+        // Number()
+        // parseInt()
+        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

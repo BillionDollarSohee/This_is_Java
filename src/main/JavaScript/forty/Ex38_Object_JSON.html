@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>JSON 연습</title>
+  <script type="text/javascript">
+    let myObj = { name: "John", age: 30, city: "seoul" };
+    console.log(myObj);
+
+    // 객체 -> JSON 문자열
+    let stringObj = JSON.stringify(myObj);
+    console.log(stringObj);
+    console.log(typeof stringObj); // string
+
+    // 문자열 -> JSON 객체
+    let stringStr = '{"name":"길동", "age":30, "city":"seoul"}';
+    console.log(stringStr);
+    console.log(typeof stringStr); // string
+
+    let myJson = JSON.parse(stringStr); 
+    console.log(myJson); // {name: "길동", age: 30, city: 'seoul'}
+
+    // 중첩된 JSON 예제
+    let myCars = {
+      "name": "john",
+      "age": 30,
+      "cars": [
+        { "name": "Ford", "model": ["Mustang", "Focus"] },
+        { "name": "BMW",  "model": ["520", "x5", "x6"] },
+        { "name": "Fiat", "model": ["500", "panda"] }
+      ]
+    };
+
+    // 존의 차량 이름과 모델명 출력
+    for (let index in myCars.cars) {
+      document.write("차량 이름 : " + myCars.cars[index].name + "<br>");
+      
+      for (let i in myCars.cars[index].model) {
+        document.write("&nbsp;&nbsp;차량 모델 : " + myCars.cars[index].model[i] + "<br>");
+      }
+
+      document.write("<hr>");
+    }
+  </script>
+</head>
+<body>
+</body>
+</html>
