@@ -1,4 +1,4 @@
-package org.everydayAlgorithm;
+package org.everydayAlgorithm.ten;
 /*
 문제 최빈수 구하기
 예시 1 2 2 2 2 2 2 4 5 6 7 7 7 5 5 5 7 7 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8

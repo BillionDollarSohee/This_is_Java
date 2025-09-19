@@ -1,4 +1,4 @@
-package org.everydayAlgorithm;
+package org.everydayAlgorithm.ten;
 
 import java.io.BufferedReader;
 import java.io.IOException;

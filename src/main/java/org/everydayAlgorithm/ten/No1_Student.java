@@ -1,4 +1,4 @@
-package org.everydayAlgorithm;
+package org.everydayAlgorithm.ten;
 
 import lombok.Getter;
 import lombok.Setter;
