@@ -22,12 +22,17 @@ dependencies {
         testImplementation 'org.junit.jupiter:junit-jupiter'
         testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
-        //JDBC
+        // 오라클 JDBC
         implementation 'com.oracle.database.jdbc:ojdbc11:23.3.0.23.09'
 
-        //MariaDB
+        // MariaDB
 //        implementation 'org.slf4j:slf4j-simple:2.0.7'
 //        implementation 'org.mariadb.jdbc:mariadb-java-client:3.4.1'
+
+        // Servlet API
+//        providedCompile 'jakarta.servlet:jakarta.servlet-api:6.0.0'
+
+
     }
 }
 
