@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<% taglib prefix = "c" uri= http"//java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix = "c" uri= http"//java.sun.com/jsp/jstl/core"%>
 <%
     Emp emp = new Emp(2000, "kosauser")
     // 현재 페이지만 사용할지(request), 모든 페이지에서 사용할지에() 따라서
