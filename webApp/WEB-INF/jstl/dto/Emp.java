@@ -1,0 +1,9 @@
+@Setter
+@Gerrer
+@ToString
+@NoArgsCinstructor
+@AllArgsConstuctor
+public class Emp {
+    private int empno;
+    private String ename;
+}
