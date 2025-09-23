@@ -12,6 +12,4 @@
         <welcome-file>memo.html</welcome-file>
     </welcome-file-list>
 
-    <!-- @WebServlet 어노테이션을 사용하므로 여기서는 서블릿 매핑 불필요 -->
-
 </web-app>
