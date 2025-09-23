@@ -2,70 +2,48 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Insert title here</title>
+    <title>Servlet Memo</title>
 </head>
 <body>
 <div style="margin-top:70px;"></div>
-<!--  html 파일  action="MemoServlet"
-JSP 경로   /Logindo  *****************************
-<form action="${pageContext.request.contextPath}/Login.do"
--->
-<form name="f" action="MemoServlet" method="get">
+
+<!-- 메모 입력 폼 - 상대 경로 사용 -->
+<form name="f" action="../../../memoServlet" method="get">
     <div align="center">
         <table width="600" border="0" cellpadding="7" >
             <tr align="center" bgcolor="gold" height="50">
                 <td colspan="2">
                     <font size="4" color="#0033CC" face="굴림체">
-                        <b>
-                            Servlet Memo
-                        </b>
+                        <b>Servlet Memo</b>
                     </font>
                 </td>
             </tr>
             <tr>
-                <td width="25%" align="center" >
-                    <b>ID</b>
-                </td>
-                <td>
-                    <input type="text" size="40" name="id" maxlength="10" >
-                </td>
+                <td width="25%" align="center"><b>ID</b></td>
+                <td><input type="text" size="40" name="id" maxlength="10"></td>
             </tr>
             <tr>
-                <td width="25%" align="center">
-                    <b>EMAIL</b>
-                </td>
-                <td>
-                    <input type="text" size="40" name="email" maxlength="60" >
-                </td>
+                <td width="25%" align="center"><b>EMAIL</b></td>
+                <td><input type="text" size="40" name="email" maxlength="60"></td>
             </tr>
             <tr>
-                <td width="25%" align="center">
-                    <b>MEMO</b>
-                </td>
-                <td>
-                    <textarea name="memo" cols="50" class="box2"></textarea>
-                </td>
+                <td width="25%" align="center"><b>MEMO</b></td>
+                <td><textarea name="memo" cols="50" class="box2"></textarea></td>
             </tr>
             <tr bgcolor="gold">
                 <td colspan="2" align="center" class="c2">
-                    <input type="submit" value="전송" >
+                    <input type="submit" value="전송">
                     <input type="reset" value="취소">
                 </td>
             </tr>
-
         </table>
-
-
     </div>
 </form>
+
 <hr>
-<a href="MemoList">목록보기</a>
+
+<!-- 상대 경로로 목록보기 링크 -->
+<a href="../../../memoList">목록보기</a><br>
 
 </body>
 </html>
-
-
-
-
-
-

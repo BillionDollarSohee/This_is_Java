@@ -7,18 +7,15 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-
-@WebServlet("/MemoList")
+@WebServlet("/memoList")
 public class MemoList extends HttpServlet {
     private static final long serialVersionUID = 1L;
-
 
     public MemoList() {
         super();
@@ -51,25 +48,24 @@ public class MemoList extends HttpServlet {
             out.println("<table width='500' border='1'>"
                     +"<tr bgcolor='gold'><th width='25%'>Writer</th>"
                     +"<th width='50%'>MemoContent</th><th width='25%'>Email</th></tr>");
-            while(rs.next()){//-------------------------
+            while(rs.next()){
                 String id = rs.getString("id");
                 String str = rs.getString("content");
                 String email = rs.getString("email");
 
-
                 out.println("<tr><td>"+id+"</td>"); //작성자
                 out.println("<td>"+str+"</td>"); //메모내용
                 out.println("<td>"+email+"</td></tr>"); //이메일
-            }//while-------------------------------------
+            }
 
-            out.println("</table></div><center><a href='memo.html'>글쓰기</a></center></body>");
+            // 절대 경로로 글쓰기 링크 수정
+            out.println("</table></div><center><a href='/This_is_Java/jsp/servlet/memo/memo.html'>글쓰기</a></center></body>");
 
             rs.close();
             ps.close();
             conn.close();
 
         } catch (Exception e) {
-
             out.println("<font color=red> 오류 : ");
             out.println(e.getMessage()+"<br/>");
             out.println("</font>");
@@ -82,9 +78,7 @@ public class MemoList extends HttpServlet {
         doProcess(request, response);
     }
 
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doProcess(request, response);
     }
-
 }
