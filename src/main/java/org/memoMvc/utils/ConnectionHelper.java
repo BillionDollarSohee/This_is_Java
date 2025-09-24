@@ -71,7 +71,7 @@ public class ConnectionHelper {
             try {
                 conn.close();
             } catch (Exception e) {
-                // todo
+                System.out.println(e.getMessage());
             }
         }
     }
@@ -81,7 +81,7 @@ public class ConnectionHelper {
             try {
                 rs.close();
             } catch (Exception e) {
-                // todo
+                System.out.println(e.getMessage());
             }
         }
     }
@@ -91,7 +91,7 @@ public class ConnectionHelper {
             try {
                 stmt.close();
             } catch (Exception e) {
-                // todo
+                System.out.println(e.getMessage());
             }
         }
     }
@@ -101,7 +101,7 @@ public class ConnectionHelper {
             try {
                 pstmt.close();
             } catch (Exception e) {
-                // todo
+                System.out.println(e.getMessage());
             }
         }
     }

@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.Date;
 import jakarta.servlet.RequestDispatcher;
 
-@WebServlet("/simpleController")   // http://localhost:8080/프로젝트명/simpleController
+@WebServlet("/SimpleController")   // http://localhost:8080/프로젝트명/simpleController
 public class SimpleController extends HttpServlet {
     private static final long serialVersionUID = 1L;
 

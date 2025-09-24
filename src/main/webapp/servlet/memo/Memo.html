@@ -2,74 +2,64 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Servlet Memo</title>
+    <title>Insert title here</title>
 </head>
 <body>
 <div style="margin-top:70px;"></div>
-
-<!-- 메모 입력 폼 -->
-<form action="memoServlet" method="post">
+<!--  html 파일  action="MemoServlet"
+JSP 경로   /Logindo  *****************************
+<form action="${pageContext.request.contextPath}/Login.do"
+-->
+<form name="f" action="MemoServlet" method="get">
     <div align="center">
-        <table width="600" border="0" cellpadding="7">
+        <table width="600" border="0" cellpadding="7" >
             <tr align="center" bgcolor="gold" height="50">
                 <td colspan="2">
                     <font size="4" color="#0033CC" face="굴림체">
-                        <b>Servlet Memo</b>
+                        <b>
+                            Servlet Memo
+                        </b>
                     </font>
                 </td>
             </tr>
             <tr>
-                <td width="25%" align="center"><b>ID</b></td>
-                <td><input type="text" size="40" name="id" maxlength="10"></td>
+                <td width="25%" align="center" >
+                    <b>ID</b>
+                </td>
+                <td>
+                    <input type="text" size="40" name="id" maxlength="10" >
+                </td>
             </tr>
             <tr>
-                <td width="25%" align="center"><b>EMAIL</b></td>
-                <td><input type="text" size="40" name="email" maxlength="60"></td>
+                <td width="25%" align="center">
+                    <b>EMAIL</b>
+                </td>
+                <td>
+                    <input type="text" size="40" name="email" maxlength="60" >
+                </td>
             </tr>
             <tr>
-                <td width="25%" align="center"><b>MEMO</b></td>
-                <td><textarea name="memo" cols="50" class="box2"></textarea></td>
+                <td width="25%" align="center">
+                    <b>MEMO</b>
+                </td>
+                <td>
+                    <textarea name="memo" cols="50" class="box2"></textarea>
+                </td>
             </tr>
             <tr bgcolor="gold">
                 <td colspan="2" align="center" class="c2">
-                    <input type="submit" value="전송">
+                    <input type="submit" value="전송" >
                     <input type="reset" value="취소">
                 </td>
             </tr>
+
         </table>
+
+
     </div>
 </form>
-
 <hr>
-
-<!-- MemoList 서블릿으로 이동 -->
-<a href="memoList">목록보기</a>
-
-<!--
-===================== 실행 순서 다이어그램 =====================
-
-@startuml
-actor User
-participant Browser
-participant MemoServlet
-database OracleDB
-participant MemoList
-
-User -> Browser: 메모 입력 후 전송
-Browser -> MemoServlet: HTTP 요청 (/MemoServlet)
-MemoServlet -> OracleDB: INSERT INTO memo(id,email,content)
-OracleDB -> MemoServlet: insert 성공
-MemoServlet -> Browser: JS 응답 (alert, location.href='MemoList')
-
-Browser -> MemoList: HTTP 요청 (/MemoList)
-MemoList -> OracleDB: SELECT * FROM memo
-OracleDB -> MemoList: ResultSet 반환
-MemoList -> Browser: HTML 테이블 응답
-Browser -> User: 목록 페이지 출력
-@enduml
-
-===============================================================
--->
+<a href="MemoList">목록보기</a>
 
 </body>
 </html>

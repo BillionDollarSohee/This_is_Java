@@ -9,11 +9,13 @@ create table memo(
 
  */
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
 @Data
 @Builder
+@AllArgsConstructor
 public class Memo {
     private String id;
     private String email;

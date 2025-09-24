@@ -1,53 +1,65 @@
-<%@page import="java.util.ArrayList"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>Insert title here</title>
-	<style>
-		table {
-
-		    font-family: arial, sans-serif;
-		    border-collapse: collapse; /* 붕괴하다 , 무너지다 */
-		    width: 100%;
-		}
-
-		th {
-		    border: 1px solid #dddddd;
-		    text-align: center;
-		    padding: 8px;
-		}
-		td{
-		    border: 1px solid #dddddd;
-			text-align: left;
-			padding: 8px;
-		}
-		tr:nth-child(even) {  /* even 짝수     odd 홀수 */
-		    background-color: #dddddd;
-		}
-	</style>
-
+<meta charset="UTF-8">
+<title>Insert title here</title>
 </head>
 <body>
-<div align=center>
-<hr color=green width=400>
-<h2> Line Memo List </h2>
+<div style="margin-top:70px;"></div>
+<!--  html 파일  action="MemoServlet"
+JSP 경로   /Logindo  *****************************
+<form action="${pageContext.request.contextPath}/Login.do"
+-->
+<form name="f" action="MemoServlet" method="get">
+ <div align="center">
+    <table width="600" border="0" cellpadding="7" >
+        <tr align="center" bgcolor="gold" height="50">
+            <td colspan="2">
+                <font size="4" color="#0033CC" face="굴림체">
+                <b>
+                   Servlet Memo
+                </b>
+                </font>
+            </td>
+        </tr>
+        <tr>
+            <td width="25%" align="center" >
+                <b>ID</b>
+            </td>
+            <td>
+                <input type="text" size="40" name="id" maxlength="10" >
+            </td>
+        </tr>
+        <tr>
+            <td width="25%" align="center">
+                <b>EMAIL</b>
+            </td>
+            <td>
+                <input type="text" size="40" name="email" maxlength="60" >
+            </td>
+        </tr>
+        <tr>
+            <td width="25%" align="center">
+                <b>MEMO</b>
+            </td>
+            <td>
+                <textarea name="memo" cols="50" class="box2"></textarea>
+            </td>
+        </tr>
+        <tr bgcolor="gold">
+            <td colspan="2" align="center" class="c2">
+                <input type="submit" value="전송" >
+                <input type="reset" value="취소">
+            </td>
+        </tr>
 
-<hr color=green width=400>
-<table>
-	<tr>
-	 	<th>Writer</th>
-	 	<th>Email</th>
-	 	<th>MemoContent</th>
-	 </tr>
-	<!--  EL & JSTL 데이터 출력하세요 -->
-	${requestScope.memoList}
-</table>
-</div>
-<a href='memo.html'>글쓰기</a>
+    </table>
+
+
+ </div>
+</form>
+<hr>
+<a href="MemoList">목록보기</a>
 
 </body>
 </html>
