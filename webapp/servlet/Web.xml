@@ -8,19 +8,25 @@
     <display-name>servlet</display-name>
 
     <welcome-file-list>
-        <welcome-file>index.html</welcome-file>
+        <welcome-file>Index.jsp</welcome-file>
+        <welcome-file>memo.html</welcome-file>
     </welcome-file-list>
 
     <!-- SimpleController 등록 - 올바른 패키지 경로로 수정 -->
     <servlet>
-        <servlet-name>simplecontroller</servlet-name>
+        <servlet-name>simpleController</servlet-name>
         <servlet-class>servlet.com.SimpleController</servlet-class>
     </servlet>
 
     <!-- 핸들러 매핑 -->
     <servlet-mapping>
-        <servlet-name>simplecontroller</servlet-name>
+        <servlet-name>simpleController</servlet-name>
         <url-pattern>/simple</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>frontBoardController</servlet-name>
+        <url-pattern>/board</url-pattern>
     </servlet-mapping>
 
 </web-app>

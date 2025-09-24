@@ -1,4 +1,4 @@
-package org.MVC.utils;
+package org.mvc.utils;
 
 import java.sql.*;
 

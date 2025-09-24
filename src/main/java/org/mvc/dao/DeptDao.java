@@ -1,6 +1,6 @@
-package org.MVC.DAO;
+package org.mvc.dao;
 
-import org.MVC.DTO.Dept;
+import org.mvc.dto.Dept;
 import org.jdbc.utils.ConnectionHelper;
 import org.jdbc.utils.DBType;
 

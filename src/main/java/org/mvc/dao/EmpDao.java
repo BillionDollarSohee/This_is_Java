@@ -1,4 +1,4 @@
-package org.MVC.DAO;
+package org.mvc.dao;
 
 /* CRUD
 1. select empno, ename, mgr, hiredate, sal,comm, deptno from emp
@@ -13,8 +13,8 @@ left join dept d on e.deptno = d.deptno
 where e.ename like ?
  */
 
-import org.MVC.DTO.Emp;
-import org.MVC.DTO.EmpDept;
+import org.mvc.dto.Emp;
+import org.mvc.dto.EmpDept;
 import org.jdbc.utils.ConnectionHelper;
 import org.jdbc.utils.DBType;
 

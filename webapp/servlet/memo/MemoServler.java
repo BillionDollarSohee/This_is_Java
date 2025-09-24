@@ -60,7 +60,7 @@ public class MemoServlet extends HttpServlet {
                 out.print("<script>");
                 out.print("alert('등록실패..');");
                 // 절대 경로로 수정
-                out.print("location.href='/This_is_Java/jsp/servlet/memo/memo.html';");
+                out.print("location.href='/This_is_Java/jsp/servlet/memo/Memo.html';");
                 out.print("</script>");
             }
 

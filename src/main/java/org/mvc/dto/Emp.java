@@ -1,4 +1,4 @@
-package org.MVC.DTO;
+package org.mvc.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

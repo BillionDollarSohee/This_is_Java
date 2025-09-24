@@ -1,4 +1,4 @@
-package org.MVC.utils;
+package org.memoMvc.utils;
 
 public enum DBType {
     ORACLE,

@@ -59,7 +59,7 @@ public class MemoList extends HttpServlet {
             }
 
             // 절대 경로로 글쓰기 링크 수정
-            out.println("</table></div><center><a href='/This_is_Java/jsp/servlet/memo/memo.html'>글쓰기</a></center></body>");
+            out.println("</table></div><center><a href='/This_is_Java/jsp/servlet/memo/Memo.html'>글쓰기</a></center></body>");
 
             rs.close();
             ps.close();

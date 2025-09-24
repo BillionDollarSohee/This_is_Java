@@ -27,15 +27,15 @@ public class FrontBoardController extends HttpServlet {
 
         String viewPage;
         if (cmd == null) {
-            viewPage = "/views/error.jsp";
+            viewPage = "/views/Error.jsp";
         } else if (cmd.equals("boardlist")) {
-            viewPage = "/views/boardList.jsp";
+            viewPage = "/views/BoardList.jsp";
         } else if (cmd.equals("boardwrite")) {
             viewPage = "/views/boardWrite.jsp";
         } else if (cmd.equals("login")) {
-            viewPage = "/views/login.jsp";
+            viewPage = "/views/Login.jsp";
         } else {
-            viewPage = "/views/error.jsp";
+            viewPage = "/views/Error.jsp";
         }
 
         // request.setAttribute("list", list); // DAO 호출 결과 담는 자리

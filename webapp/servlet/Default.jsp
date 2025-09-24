@@ -17,9 +17,9 @@
 		<a href="<%=request.getContextPath()%>/simple?type=abcd">simple 비정상 요청하기(GET)</a>
 
 		<h3>FrontBoardController 사용하기 (command 방식으로 ..)</h3>
-		<a href="<%=request.getContextPath()%>/Board?cmd=boardlist">게시판 목록보기</a>
+		<a href="<%=request.getContextPath()%>/Board?cmd=boardList">게시판 목록보기</a>
 		<br>
-		<a href="<%=request.getContextPath()%>/Board?cmd=boardwrite">게시판 글쓰기</a>
+		<a href="<%=request.getContextPath()%>/Board?cmd=boardWrite">게시판 글쓰기</a>
 		<br>
 		<a href="<%=request.getContextPath()%>/Board">cmd null error 페이지</a>
 		<br>

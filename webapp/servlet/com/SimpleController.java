@@ -41,10 +41,10 @@ public class SimpleController extends HttpServlet {
         request.setAttribute("result", resultObj);
 
         // 뷰 지정
-        RequestDispatcher dis = request.getRequestDispatcher("/views/simpleview.jsp");
+        RequestDispatcher dis = request.getRequestDispatcher("/views/Simpleview.jsp");
         dis.forward(request, response);
 
-        // JSP (요청 발생) → web.xml (URL → 서블릿 연결) → SimpleController (로직 + 데이터 저장 + 뷰 지정) → JSP(View)로 forward
+        // JSP (요청 발생) → Web.xml (URL → 서블릿 연결) → SimpleController (로직 + 데이터 저장 + 뷰 지정) → JSP(View)로 forward
     }
 
     @Override

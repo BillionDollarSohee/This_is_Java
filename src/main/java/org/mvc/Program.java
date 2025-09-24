@@ -1,7 +1,7 @@
-package org.MVC;
+package org.mvc;
 
-import org.MVC.DAO.DeptDao;
-import org.MVC.DTO.Dept;
+import org.mvc.dao.DeptDao;
+import org.mvc.dto.Dept;
 
 import java.util.List;
 

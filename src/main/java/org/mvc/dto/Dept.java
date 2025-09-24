@@ -1,4 +1,4 @@
-package org.MVC.DTO;
+package org.mvc.dto;
 /*
 데이터를 1건 담을 수 있는 객체
 Oracle DB에 있는 Dept와 1:1 매칭되는 클래스로 만들 예정
