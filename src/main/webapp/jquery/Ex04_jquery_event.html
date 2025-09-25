@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery 연습</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        #hoverBox {
+            width: 200px;
+            height: 100px;
+            background: lightgray;
+            text-align: center;
+            line-height: 100px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+
+            // [copy] 버튼 클릭 시 ID 값을 Copy ID 칸으로 복사
+            $("#btncopy").click(function() {
+                const userId = $("#txtuserid").val();
+                $("#txtcopyuserid").val(userId);
+            });
+
+            // select 값 변경 시
+            $("#select_hobby").change(function() {
+                const text = $('#select_hobby option:selected').text(); // 선택된 option의 text
+                console.log("text:", text);
+
+                const value = $('#select_hobby').val(); // 선택된 option의 value
+                console.log("value:", value);
+
+                // input에 선택된 값 넣어주기
+                $("#txtselect").val(value);
+            });
+
+            // 비밀번호 확인
+            $("#txtpwd2").keyup(function() {
+                const pwd1 = $("#txtpwd").val();
+                const pwd2 = $("#txtpwd2").val();
+
+                if (pwd2.length > 0) {
+                    if (pwd1 === pwd2) {
+                        $("#message").text("비밀번호가 일치합니다 ✅").css("color", "green");
+                    } else {
+                        $("#message").text("비밀번호가 일치하지 않습니다 ❌").css("color", "red");
+                    }
+                } else {
+                    $("#message").text("");
+                }
+            });
+
+            // hover 테스트
+            $("#hoverBox").hover(
+                function() { $(this).css("background", "gold").text("마우스 올라옴"); },
+                function() { $(this).css("background", "lightgray").text("마우스 나감"); }
+            );
+        });
+    </script>
+</head>
+<body>
+<p>Jquery hover(mouseover , mouseleave)</p>
+
+ID: <input type="text" id="txtuserid">
+<hr>
+<input type="button" id="btncopy" value="copy">
+<hr>
+Copy ID: <input type="text" id="txtcopyuserid">
+
+<hr>
+<select id="select_hobby">
+    <option value="JAVA">java</option>
+    <option value="SCRIPT">script</option>
+    <option value="JDBC">jdbc</option>
+</select>
+<br>
+<input type="text" id="txtselect">
+<hr>
+<table style="border: 1px solid red;">
+    <tr>
+        <td>암호</td>
+        <td><input type="text" id="txtpwd" size="20" maxlength="5"></td>
+    </tr>
+    <tr>
+        <td>암호확인</td>
+        <td><input type="text" id="txtpwd2" size="20" maxlength="5"></td>
+    </tr>
+</table>
+<div id="message" style="color: red"></div>
+
+<div id="hoverBox">마우스를 올려보세요</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(function() {
+            // 여러 이벤트를 네임스페이스와 함께 등록
+            $('p').on({
+                mouseenter: function(){ $(this).css('background-color', 'red'); },
+                mouseleave: function(){ $(this).css('background-color', 'green'); },
+                click: function(){ $(this).css('background-color', 'blue'); }
+            });
+
+            // 버튼 클릭 시 p 태그의 click 이벤트 제거
+            $('button').click(function(){
+                $('p').off('click');  // ← 이렇게만 쓰면 제거가 안될 수도 있음
+            });
+        });
+    </script>
+</head>
+<body>
+<p>함수를 사용해서 다중 이벤트 처리하기</p>
+<hr>
+<button>이벤트 제거</button>
+</body>
+</html>

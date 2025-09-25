@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+
+    <!-- jQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- 스타일 -->
+    <style>
+        .redcolor { color: red; font-weight: bold; }
+        .bluecolor { color: blue; }
+        .greencolor { color: green; }
+    </style>
+
+    <!-- 스크립트 -->
+    <script>
+        /*
+        <CSS Classes>
+        addClass()    - Adds one or more classes to the selected elements
+        removeClass() - Removes one or more classes from the selected elements
+        toggleClass() - Toggles between adding/removing classes from the selected elements
+        css()         - Sets or returns the style attribute
+
+        <Add Elements>
+        append()  - Inserts content at the end of the selected elements
+        prepend() - Inserts content at the beginning of the selected elements
+        after()   - Inserts content after the selected elements
+        before()  - Inserts content before the selected elements
+        */
+
+        $(function(){
+            // "홍길동"이 포함된 행 처리
+            let $row = $('td:contains("홍길동")').parent();
+            $row.find('td:first').addClass('greencolor');       // 첫 칸 초록
+            $row.find('td').not(':first').addClass('bluecolor');// 나머지 파랑
+
+            // #btnclick 클릭 이벤트
+            $('#btnclick').on({
+                click: function(){
+                    alert('click');
+                }
+            });
+
+            // #stylediv 마우스오버/아웃 이벤트
+            $('#stylediv').on({
+                mouseover: function(){
+                    $(this).addClass('greencolor');
+                },
+                mouseout: function(){
+                    $(this).removeClass('greencolor').addClass('bluecolor');
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+<table border="1">
+    <tr>
+        <td>이름</td>
+        <td>나이</td>
+        <td>취미</td>
+    </tr>
+    <tr>
+        <td>홍길동</td>
+        <td>50</td>
+        <td>훔치기</td>
+    </tr>
+    <tr>
+        <td>이순신</td>
+        <td>10</td>
+        <td>싸움</td>
+    </tr>
+    <tr>
+        <td>학생</td>
+        <td>30</td>
+        <td>잠자기</td>
+    </tr>
+</table>
+
+<hr>
+<h3>이벤트</h3>
+<a href="http://www.naver.com" target="_blank">네이버 바로가기</a>
+<hr>
+
+<div id="btnclick">click</div>
+<div id="stylediv">스타일적용</div>
+</body>
+</html>

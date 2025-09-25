@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>따릉이 거치대 랭킹</title>
+    <style>
+        body {
+          font-family: 'Arial', sans-serif;
+          background-color: #f5f7fa;
+          margin: 0;
+          padding: 20px;
+          color: #333;
+        }
+        h1 { text-align: center; margin-bottom: 20px; color: #2c3e50; }
+        .control-box { text-align: center; margin-bottom: 15px; }
+        input[type=number] {
+          padding: 6px 10px; font-size: 14px; margin-right: 5px; width: 80px;
+        }
+        button {
+          padding: 6px 12px; font-size: 14px;
+          background-color: #3498db; color: white;
+          border: none; border-radius: 4px; cursor: pointer;
+        }
+        button:disabled { background: #aaa; cursor: not-allowed; }
+        button:hover:enabled { background-color: #2980b9; }
+        .rank-table {
+          max-width: 700px; margin: 0 auto; border-collapse: collapse; width: 100%;
+        }
+        .rank-table th, .rank-table td {
+          padding: 12px 15px; text-align: left;
+        }
+        .rank-table th {
+          background-color: #3498db; color: #fff; font-weight: bold;
+          border-radius: 6px 6px 0 0;
+        }
+        .rank-table tr {
+          background-color: #fff; border-bottom: 1px solid #ddd;
+          transition: background 0.2s ease;
+        }
+        .rank-table tr:hover { background-color: #ecf0f1; }
+        .highlight { color: #e74c3c; font-weight: bold; }
+        #status { text-align:center; margin: 10px; font-size: 14px; color: #555; }
+    </style>
+</head>
+<body>
+<h1>🚲 따릉이 거치대 수 랭킹</h1>
+
+<div class="control-box">
+    <input type="number" id="count" value="10" min="1" max="100" />
+    <button id="load-btn">데이터 불러오기</button>
+</div>
+<div id="status"></div>
+
+<table class="rank-table">
+    <thead>
+    <tr>
+        <th>순위</th>
+        <th>거치대수</th>
+        <th>주소</th>
+    </tr>
+    </thead>
+    <tbody id="rank-body"></tbody>
+</table>
+
+<script>
+    const API_URL =
+      "http://openapi.seoul.go.kr:8088/6a526d6d5363686936327645464564/json/tbCycleStationInfo/1/1000/";
+
+    /** ✅ API에서 따릉이 데이터 불러오기 */
+    async function fetchStations() {
+      const response = await fetch(API_URL);
+      if (!response.ok) throw new Error("서버 요청 실패");
+      const data = await response.json();
+      const rows = data.stationInfo?.row;
+      if (!Array.isArray(rows)) {
+        console.warn("API 응답:", data);
+        throw new Error("API 데이터 형식이 예상과 다릅니다.");
+      }
+      return rows;
+    }
+
+    /** ✅ 거치대 수 기준으로 내림차순 정렬 */
+    function sortStations(stations) {
+      return [...stations].sort(
+        (a, b) => parseInt(b.HOLD_NUM) - parseInt(a.HOLD_NUM)
+      );
+    }
+
+    /** ✅ 테이블 HTML 렌더링 */
+    function renderTable(stations, count) {
+      let rank = 1;
+      let html = "";
+
+      stations.slice(0, count).forEach((s, i) => {
+        if (i > 0 && parseInt(s.HOLD_NUM) !== parseInt(stations[i - 1].HOLD_NUM)) {
+          rank = i + 1;
+        }
+        html += `
+          <tr>
+            <td>${rank}</td>
+            <td><span class="highlight">${s.HOLD_NUM}</span></td>
+            <td>${s.STA_ADD1 || ""} ${s.STA_ADD2 || ""}</td>
+          </tr>
+        `;
+      });
+
+      document.getElementById("rank-body").innerHTML = html;
+    }
+
+    /** ✅ 로딩 상태 표시 */
+    function setStatus(msg) {
+      document.getElementById("status").textContent = msg || "";
+    }
+
+    /** ✅ 메인 로직 */
+    async function loadData() {
+      const btn = document.getElementById("load-btn");
+      const count = Math.max(1, parseInt(document.getElementById("count").value) || 10);
+
+      btn.disabled = true;
+      setStatus("⏳ 데이터를 불러오는 중입니다...");
+
+      try {
+        const stations = await fetchStations();
+        const sorted = sortStations(stations);
+        renderTable(sorted, count);
+        setStatus(`✅ 총 ${stations.length}개 중 상위 ${count}개를 표시했습니다.`);
+      } catch (err) {
+        console.error(err);
+        setStatus(`⚠️ 오류: ${err.message}`);
+        alert("데이터를 가져오지 못했습니다.\n" + err.message);
+      } finally {
+        btn.disabled = false;
+      }
+    }
+
+    document.getElementById("load-btn").addEventListener("click", loadData);
+</script>
+</body>
+</html>

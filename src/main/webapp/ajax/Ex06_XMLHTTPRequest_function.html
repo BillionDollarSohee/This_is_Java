@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX 예제</title>
+    <script>
+        let xhr = null;
+
+        // XMLHttpRequest 객체 생성 (브라우저 호환 처리)
+        function getInstance() {
+            if (window.XMLHttpRequest) {
+                xhr = new XMLHttpRequest();  // 최신 브라우저
+            } else if (window.ActiveXObject) {
+                xhr = new ActiveXObject("Microsoft.XMLHTTP"); // 구형 IE
+                console.log("IE");
+            } else {
+                throw new Error("Ajax 비동기 지원하지 않아요");
+            }
+            return xhr;
+        }
+
+        // 요청 상태가 바뀔 때 실행될 함수
+        function handlerStateChange() {
+            if (xhr.readyState === 4) {           // 요청 완료
+                if (xhr.status === 200) {         // 정상 응답
+                    document.getElementById("ajaxload").innerHTML = xhr.responseText;
+                } else {
+                    console.error("요청 실패:", xhr.status);
+                }
+            }
+        }
+
+        // AJAX 요청 보내기
+        function sendRequest() {
+            xhr = getInstance();
+            xhr.onreadystatechange = handlerStateChange; // 상태 변화 감지
+            xhr.open("GET", "Ex04_Server.html");
+            xhr.send(); // 발사
+        }
+    </script>
+</head>
+<body>
+<h2>AJAX 비동기 통신 예제</h2>
+<h3>update a web page without reloading the page</h3>
+<img src="../image/p20250921.jpg" style="width: 150px ; height: 150px">
+
+<h3>비동기 처리(ajax) 요청</h3>
+<button onclick="sendRequest()">비동기 요청</button>
+<div id="ajaxload">Data load ....</div>
+
+
+<h3>동기식 데이터 요청 처리</h3>
+<a href="Ex04_Server.html">동기 요청</a>
+</body>
+</html>

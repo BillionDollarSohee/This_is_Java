@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Insert title here</title>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // body 바로 아래 자식 요소를 gold 색으로
+            $('body > *').css('color', 'gold');
+            // div 바로 아래 자식 요소를 red 색으로
+            $('div > *').css('color', 'red');
+            $('input[type=text]').css('color', 'green');
+
+            /*
+            DOM script : p ,div > innerHTML , innerText (value 속성이 없는 것)
+            input 태그들은 value 속성을 가지고 있다
+            ex) document.getElementById("name").value
+
+            jQuery 3총사
+            val(), text(), html() → read, write 모두 가능 (getter, setter 역할)
+            값을 넣으면 write, 값을 안 주면 read
+
+            $('#userid').val()        → 값 읽기
+            $('#userid').val("world") → 값 쓰기
+            */
+
+            // 모든 text input 값을 9999로 변경
+            $('input[type=text]').val('9999');
+
+            // javascript 하고 jquery 혼합해서 사용 가능
+            setTimeout(() => {
+                const value = $('select > option:selected').val();
+                alert("select tag value : " + value);
+            }, 3000);
+        });
+    </script>
+</head>
+<body>
+<div>
+    <ul>
+        <li>사과</li>
+        <li>배</li>
+        <li>수박</li>
+    </ul>
+</div>
+<div>
+    <ul>
+        <li>사과2</li>
+        <li>배2</li>
+        <li>수박2</li>
+    </ul>
+</div>
+<input type="text" value="AAA">
+<input type="text" value="BBB">
+<input type="text" value="CCC">
+<input type="password">
+<input type="radio">
+<input type="file">
+<hr>
+<table>
+    <tr>
+        <td>이름</td>
+        <td>나이</td>
+        <td>취미</td>
+    </tr>
+    <tr>
+        <td>홍길동</td>
+        <td>50</td>
+        <td>훔치기</td>
+    </tr>
+    <tr>
+        <td>이순신</td>
+        <td>10</td>
+        <td>싸움</td>
+    </tr>
+    <tr>
+        <td>학생</td>
+        <td>30</td>
+        <td>잠자기</td>
+    </tr>
+</table>
+<hr>
+<select>
+    <option>농구</option>
+    <option>축구</option>
+    <option>야구</option>
+    <option>배구</option>
+</select>
+</body>
+</html>
