@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>load</title>
+
+    <!-- jQuery 불러오기 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+        /*
+        jQuery에서 제공하는 비동기 통신(Ajax)
+        .load( url [, data ] [, complete ] )
+          - url : 요청할 서버 주소
+          - data : 서버로 전송할 데이터 (JSON 또는 query string)
+          - complete : 통신이 완료된 후 실행될 콜백 (responseText, textStatus, jqXHR)
+        */
+
+        $(function() {
+            $('#btn').click(function(){
+                // 기본 요청
+                $('#display').load("Ex01_server_date.jsp");
+
+                // 데이터 전달 + 콜백 처리
+                $('#display').load(
+                    "Ex01_server_date.jsp",
+                    { "msg": $('#msg2').val() },
+                    function(responseText, textStatus, jqXHR) {
+                        if (textStatus === "success") {
+                            console.log("responseText: " + responseText);
+                        } else {
+                            console.log(jqXHR.status + " , " + jqXHR.statusText);
+                        }
+                    }
+                );
+            });
+        });
+    </script>
+</head>
+<body>
+<h3>비동기 처리</h3>
+<input type="text" name="msg2" id="msg2">
+<input type="button" id="btn" value="비동기전송">
+<div id="display"></div>
+</body>
+</html>

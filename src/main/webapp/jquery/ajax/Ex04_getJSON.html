@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>json</title>
+
+    <!-- jQuery 불러오기 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $('#btn .btnload').click(function(){
+                $.getJSON("Ex04_json.json", function(data) {
+                    console.log(data);
+                    $.each(data, function(index, obj){
+                        $('#display').append(index + " / " + obj.num + " / " + obj.name + "<br>");
+                    });
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<div id="btn">
+    <div class="btnload" style="cursor:pointer; padding:10px; background:#ddd; display:inline-block;">
+        JSON DATA LOAD
+    </div>
+</div>
+
+<div id="display" style="margin-top:20px; border:1px solid #ccc; padding:10px;">
+    <!-- JSON 데이터가 여기 추가됩니다 -->
+</div>
+</body>
+</html>

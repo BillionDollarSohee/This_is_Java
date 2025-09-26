@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ajax</title>
+
+    <!-- jQuery 불러오기 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        /*
+        Low-Level Interface 비동기 함수 : jQuery.ajax , $.ajax jQuery.ajax( url [, settings ] )
+        공식 : https://api.jquery.com/jQuery.ajax/
+        url : 요청주소 [, settings ] > 여러가지 옵션 > {json객체 형태로 ....}
+        dataType (default: Intelligent Guess (xml, json, script, or html))
+        */
+
+
+
+        $(function(){
+            $('#menu1').click(function(e){
+                e.preventDefault(); // a 태그 기본 동작 방지
+
+                $.ajax({
+                    url: "Ex02_menu.html",
+                    dataType: "html",
+                    success: function(responseText) {
+                        console.log(responseText);
+                        // Ajax로 불러온 HTML을 #menudiv 에 넣고 그 안의 li 요소를 찾음
+                        $("#menudiv").html(responseText).find('li').each(function(){
+                            console.log($(this).text());
+                        });
+                    },
+                    error: function(xhr, status, error) {
+                        console.log("에러 상태:", status);
+                        console.log("에러 내용:", error);
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<div id="menudiv">
+    <a href="#" id="menu1">클릭하세요</a>
+</div>
+</body>
+</html>

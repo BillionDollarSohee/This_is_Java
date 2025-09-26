@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax Login</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $(function(){
+            // 로그인 버튼 클릭 시 Ajax 요청
+            $('#login').click(function(){
+                const actionurl = $('#form1').attr("action");
+                // form 태그의 action 속성값 가져오기 (Ex08_loginOK.jsp)
+                const form_data = {
+                    user_id: $('#user_id').val(),
+                    user_pwd: $('#user_pwd').val()
+                };
+
+                $.ajax({
+                    url: actionurl,
+                    type: "POST",
+                    dataType: "text",     // 응답을 text 형식으로 받음
+                    data: form_data,
+                    success: function(responsedata){
+                        console.log(">" + responsedata + "<");
+                        const result = responsedata.trim(); // 공백 제거
+                        if(result === "success"){
+                            $("#form1").slideUp("slow");
+                            $('#message').html("<p style='color:green; font-weight:bold'>로그인 성공</p>");
+                        } else {
+                            $('#message').html("<p style='color:red; font-weight:bold'>로그인 실패</p>");
+                        }
+                    },
+                    error: function(xhr){
+                        console.log("에러 상태 코드: " + xhr.status);
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+<form id="form1" name="form1" action="Ex08_loginOK.jsp" method="post">
+    <table>
+        <tr>
+            <td>아이디</td>
+            <td><input type='text' id='user_id' name='user_id' tabindex='1' /></td>
+            <td rowspan='2'>
+                <input type='button' id='login' tabindex='3' value='로그인' style='height: 50px' />
+            </td>
+        </tr>
+        <tr>
+            <td>비밀번호</td>
+            <td><input type='password' id='user_pwd' name='user_pwd' tabindex='2' /></td>
+        </tr>
+    </table>
+</form>
+<div id="message"></div>
+</body>
+</html>
