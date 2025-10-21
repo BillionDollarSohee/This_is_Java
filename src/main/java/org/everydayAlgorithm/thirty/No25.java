@@ -33,5 +33,21 @@ public class No25 {
 
         System.out.println(count);
 
+
+        //재귀풀이
+        int result = cycle(n, n, 0);
+        System.out.println(result);
+    }
+
+    public static int cycle(int start, int current, int count) {
+        int ten = current / 10;
+        int one = current % 10;
+        int sum = (ten + one) % 10;
+        int next = one * 10 + sum;
+
+        if (next == start) { // 기저 조건: 원래 수로 돌아오면
+            return count + 1;
+        }
+        return cycle(start, next, count + 1);
     }
 }
