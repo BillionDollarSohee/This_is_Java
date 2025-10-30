@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /*
+        ES6 구조 분해 할당
+        자바스크립트의 배열을 할당하겠다
+        */
+
+        const arr = [1,2,3,4];
+        const obj = {a:10, b:20, c:30};
+
+        const {a,b,c} = obj;
+        console.log(a);
+        console.log(b);
+        console.log(c);
+
+        const smith = {
+            lang:"js",
+            position:"front",
+            area:"gang_nam",
+            hobby:"baseball",
+            age:"90"
+        }
+
+        const {lang,position, area,hobby,age} = smith;
+        console.log(lang);
+        console.log(position);
+
+        // 배열의 구조분해할당
+        const numbers = [11,22,33];
+        const [first, second, third] = numbers;
+        console.log(first);
+
+        const number3 = [1,2,3,4,5];
+        const [,, third3, fourth3] = number3;
+        console.log(third3);
+        console.log(fourth3);
+
+        /*
+        10
+        20
+        30
+        js
+        front
+        11
+        3
+        4
+        */
+
+    </script>
+
+
+</head>
+<body>
+
+</body>
+</html>

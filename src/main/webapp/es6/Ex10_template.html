@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        /*
+        Template Literal
+        자바스크립트에서 문자열을 입력하는 형식을 정의하는 것으로
+        ES6 백틱(back-tick) `랑 ${} 를 결합해서 사용하는 경우가 많음
+        */
+
+        const str = "hello";
+        const str2 = "hello world";
+
+        const lang = "javascript",
+        const expression = "I love " + lang " + "!!!";
+        console.log(expression);
+
+        // 버전 2
+        const lang = "javascript",
+        const expression = `I love  #{lang} !!!`;
+        console.log(expression);
+
+        // 버전 2로 하면 표현식 안에 함수를 쓸 수 있다
+        const expression = `I love  #{lang.split('').reverse().join('')} !!!`;
+
+        const arr = ["바람", "비", "믈"];
+        console.log(arr.join('-'));        // 바람-비-물
+
+        const User4 = {
+            name: "순신",
+            age:30
+        };
+
+        const userData = `사랑하는 ${user4.name} 는 이제 ${user4.age} 입니다`;
+        console.log(userData);
+
+    </script>
+</body>
+</html>
