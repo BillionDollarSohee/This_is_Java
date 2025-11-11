@@ -18,7 +18,7 @@ public class No31 {
     }
 
     public static long pactorial(int input) {
-        if (input <= 1) return 1;   
+        if (input <= 1) return 1;
         return input * pactorial(input - 1);
     }
 }
